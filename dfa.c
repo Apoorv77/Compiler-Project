@@ -43,6 +43,21 @@ int main(){
             case ':':
                 state=38;
                 break;
+            case '+':
+                state = 40;
+                break;
+            case '-':
+                state = 41;
+                break;
+            case '*':
+                state = 42;
+                break;
+            case '/':
+                state = 43;
+                break;
+            case '~':
+                state = 44;
+                break;
             default:
                 break;
             }
