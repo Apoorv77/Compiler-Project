@@ -24,10 +24,54 @@ void removeComments(char* inputStream, char* outputStream){
 }
 
 int main(){
-    char* opstream = ((char*) (malloc(sizeof(char)*100)));
-    removeComments("ABCDE\nsldjkfgn%pqrst dkfjgndkjf\n $", opstream);
+    FILE* fp;
+    char c;
+    int n = 50;
+    int lenRead = 0;
 
-    for(int i = 0; i < 100; i++){
+    char* inputStream = malloc(sizeof(char) * n);
+
+    char* inputPointer = inputStream;
+
+
+    fp = fopen("testcase.txt", "r");
+
+    if(fp == NULL){
+        printf("Eroor in reading file\n");
+        return(-1);
+    }
+
+    do{
+        c = fgetc(fp);
+        *inputPointer = c;
+        inputPointer++;
+        lenRead++;
+
+        if(feof(fp)){
+            break;
+        }
+
+        if(lenRead == n - 5){
+            n = n * 2;
+            inputStream = (char *) realloc(inputStream, n);
+            inputPointer = inputStream;
+
+            for(int i = 0; i < lenRead; i++){
+                inputPointer++;
+            }
+        }
+
+
+    }
+    while(1);
+
+    *inputPointer = '$';
+
+
+    char* opstream = ((char*) (malloc(sizeof(char)*n)));
+    removeComments(inputStream, opstream);
+
+    for(int i = 0; i < n; i++){
         printf("%c", opstream[i]);
     }
 }
