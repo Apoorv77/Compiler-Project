@@ -1,9 +1,9 @@
 
-#include "twinBuffer.h"
-#include "hashtable.h"
 #include<stdlib.h>
 #include<stdio.h>
-
+#include "twinBuffer.h"
+#include "hashtable.h"
+#include "lexer.h"
 token* getNextToken(FILE* fp,twinBuffer* tb);
 void lexical_analysis(FILE* fp);
 
@@ -18,9 +18,10 @@ void lexical_analysis(FILE* fp){
     
     readIntoBuffer(fp,tb);
     char c;
-     while(!feof(fp)){
+     while(!feof(fp) || tb->idx != tb->numRead){
+         printf("Found token\n");
          token* t = getNextToken(fp,tb);
-         printf("%s\n",t->lexeme);
+        // printf("%s\n",t->lexeme);
    }
 }
 
@@ -67,42 +68,54 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
                 break;
             case '%':
                 state=27;
+                found=1;
                 break;
             case '<':
                 state=28;
                 break;
             case '[':
                 state=34;
+                found=1;
                 break;
             case ']':
                 state=35;
+                found=1;
                 break;
             case ',':
                 state=36;
+                found=1;
                 break;
             case ';':
                 state=37;
+                found=1;
                 break;
             case ':':
                 state=38;
+                found=1;
                 break;
             case ')':
                 state=39;
+                found=1;
                 break;
             case '+':
                 state = 40;
+                found=1;
                 break;
             case '-':
                 state = 41;
+                found=1;
                 break;
             case '*':
                 state = 42;
+                found=1;
                 break;
             case '/':
                 state = 43;
+                found=1;
                 break;
             case '~':
                 state = 44;
+                found=1;
                 break;
             case '&':
                 state = 45;
@@ -120,7 +133,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
                 state = 56;
                 break;
             default:
-            //Retract
+            //Error !
                 break; 
             }
         }
@@ -131,8 +144,8 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
        }
        else{
             state = 2;
-           // //retract();
-            break;
+            retract(tb,&idx,lexeme);
+            found=1;
        }
        break;
     case 3:
@@ -144,10 +157,8 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 7;
-           // //retract();
-            break;
-            //Retract by one
-            //token funfield found
+           retract(tb,&idx,lexeme);
+            found=1;
         }
         break;
     case 4:
@@ -159,11 +170,10 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 5;
-           // //retract();
-            break;
+           retract(tb,&idx,lexeme);
+           found=1;
         }
-    break;
-
+        break;
 
     case 6:
         if(c >= '2' && c <= '7'){
@@ -171,10 +181,11 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 5;
-            //retract();
+            retract(tb,&idx,lexeme);
+            found=1;
             break;
         }
-    break;
+        break;
 
     case 8:
         if(c >= '0' && c <= '9'){
@@ -185,12 +196,10 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 9;
-            //retract();
-            break;
+            retract(tb,&idx,lexeme);
+            found=1;
         }
-    
-    break;
-
+       break;
     case 10:
         if(c >= '0' && c <= '9'){
             state = 11;
@@ -198,7 +207,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         else{
             //error
         }
-    break;
+        break;
 
     case 11:
         if(c >= '0' && c <= '9'){
@@ -207,7 +216,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         else{
             //error
         }
-    break;
+        break;
 
     case 12:
         if(c == 'E'){
@@ -215,12 +224,11 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 13;
-            ////retract();
+            retract(tb,&idx,lexeme);
+            found=1;
             break;
         }
-
-
-    break;
+        break;
 
     case 14:
         if(c == '+' || c == '-'){
@@ -229,34 +237,37 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         else if(c >= '0' && c <= '9'){
             state = 16;
         }
-    break;
+        else{
+            //ERROR
+        }
+        break;
 
     case 15:
         if(c >= '0' && c <= '9'){
             state = 16;
         }
         else{
-            //eroor;
+            //error;
         }
     break;
 
     case 16:
         if(c >= '0' && c <= '9'){
-            state = 17;
+            state = 13;
+            found=1;
+        }
+        else{
+            //error
         }
     break;
 
-    case 17:
-        if(!(c >= '0' && c <= '9')){
-            state = 13;
-            //retract();
-            break;
-        }
-    break;
 
     case 18:
         if(((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))){
             state = 19;
+        }
+        else{
+            //error
         }
     break;
 
@@ -269,10 +280,11 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 20;
-            ////retract();
+            retract(tb,&idx,lexeme);
+            found=1;
             break;
         }
-    break;
+        break;
 
     case 21:
         if(c >= '0' && c <= '9'){
@@ -280,17 +292,17 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 20;
-            //retract();
-            break;
+            retract(tb,&idx,lexeme);
+            found=1;
         }
-    break;
+        break;
 
     case 24:
         if(c >= 'a' && c <= 'z'){
             state = 25;
         }
         else{
-            //eroor
+            //error
         }
     break;
 
@@ -300,24 +312,24 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 26;
-           // //retract();
-            break;
+           retract(tb,&idx,lexeme);
+            found=1;
         }
 
-    break;
+       break;
    
     case 28:   
         if(c == '='){
             state = 29;
-            break;
+            found=1;
         }
         else if(c == '-'){
             state = 30;
         }
         else{
             state = 33;
-           // //retract();
-            break;
+            retract(tb,&idx,lexeme);
+            found=1;
         }
     break;
 
@@ -329,16 +341,16 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         else{
             //error
         }
-    break;
+        break;
 
 
     case 31:
         if(c == '-'){
             state = 32;
-            break;
+            found=1;
         }
         else{
-            break;
+            //error
         }
     break;
 
@@ -346,20 +358,20 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
     case 45:
         if(c == '&'){
             state = 46;
-            break;
         }
         else{
-            break;
+            //Error
         }
     break;
 
     case 46:
         if(c == '&'){
             state = 47;
+            found=1;
             break;
         }
         else{
-            break;
+            //error
         }
     break;
 
@@ -368,51 +380,53 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 49;
         }
         else{
-            break;
+            //error
         }
     break;
 
     case 49:
         if(c == '@'){
             state = 50;
-            break;
+            found=1;
         }
         else{
-            break;
+            //error
         }
     break;
 
     case 51:
         if(c == '='){
             state = 53;
-            break;
+            found=1;
         }
         else{
             state = 52;
-            break;
+            retract(tb,&idx,lexeme);
+            found=1;
         }
     break;
 
     case 54:
         if(c == '='){
             state = 55;
+            found=1;
             break;
         }
         else{
-            break;
+            //error
         }
     break;
 
     case 56:
         if(c == '='){
             state = 57;
-            break;
+            found=1;
         }
         else{
-            break;
+            //error
         }
-   
     default:
+    //Error ,should never land up here
         break;
     }
 }
