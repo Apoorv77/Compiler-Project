@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main(){
-
-
+ 
+ 
     switch (state)
     {
     case 0:
@@ -43,6 +43,9 @@ int main(){
             case ':':
                 state=38;
                 break;
+            case ')':
+                state=39;
+                break;
             case '+':
                 state = 40;
                 break;
@@ -74,10 +77,35 @@ int main(){
                 state = 56;
                 break;
             default:
+            //Retract
                 break;
             }
         }
         break;
+    case 1:
+       if('a'<=c && c<='z')state=1;
+       else{
+            //Retract by one
+            //token funcfield found
+       }
+       break;
+    case 3:
+        if('a'<=c && c<='z')state=1;
+        else if('2' <=c && c<='7')state=4;
+        else{
+            //Retract by one
+            //token funfield found
+        }
+        break;
+    case 4:
+    if('b' <= c && c<='d')state=4;
+    else if('2'<=c && c<='7')state=6;
+    else{
+        //Retract by one
+        //token identifier found
+    }
+    break;
+   
     case 28:
         c = get_char_From_buffer(fp);      // plaacholder for now
         if(c == '='){
@@ -170,8 +198,9 @@ int main(){
         else{
             break;
         }
-    
+   
     default:
         break;
     }
 }
+

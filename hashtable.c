@@ -17,33 +17,27 @@ int hash(char *str){
 }
 
 //Initialize hashtable
-hashtable* init_hash_table(hashtable* table){
+void init_hash_table(hashtable_element* table){
     if(table == NULL){
         printf("HashTable allocation not found,Creating One.\n");
-        table = malloc(sizeof(hashtable));
-        printf("Table Alloc in init was successfull\n");
     }
     for(int i = 0; i < HASHTABLE_SIZE; i++){
-       if(table[i]==NULL){printf("%d\n",i);}
-       else{
-        table[i]->tokenPointer= NULL;
-        table[i]->added = false;
-       }
+        table[i].tokenPointer = NULL;
+        table[i].added = false;
     //   printf("checking loop %d\n", i);
     }
     
     printf("Table Initialized\n");
-    return table;
 }
 
 //Insert
-void insert_token(hashtable* table,token* Token){
+void insert_token(hashtable_element* table,token* Token){
     printf("Inside insert token function\n");
     int lexeme_hash=hash(Token->lexeme);
     int probe=1;
     printf("Lexeme Hashed: %d\n", lexeme_hash);
-    while(table[lexeme_hash]->added){
-        if(strcmp(table[lexeme_hash]->tokenPointer->lexeme,Token->lexeme) == 0){
+    while(table[lexeme_hash].added){
+        if(strcmp(table[lexeme_hash].tokenPointer->lexeme,Token->lexeme) == 0){
             break;
             printf("PreExisting Token found \n");
         }
@@ -53,23 +47,23 @@ void insert_token(hashtable* table,token* Token){
     }
 
     printf("Empty Space Found\n");
-    table[lexeme_hash]->tokenPointer = Token ;
-    table[lexeme_hash]->added=true;
+    table[lexeme_hash].tokenPointer = Token ;
+    table[lexeme_hash].added=true;
     printf("Token Added\n");
 }
 
 //Search the hash table
-token* find_token(hashtable* table, char* lexeme){
+token* find_token(hashtable_element* table, char* lexeme){
     printf("Inside find_token\n");
 
     int lexeme_hash = hash(lexeme);
     int probe = 1;
 
     printf("Lexeme Hashed: %d\n", lexeme_hash);
-    while(table[lexeme_hash]->added){
-        if(strcmp(table[lexeme_hash]->tokenPointer->lexeme, lexeme) == 0){
+    while(table[lexeme_hash].added){
+        if(strcmp(table[lexeme_hash].tokenPointer->lexeme, lexeme) == 0){
             printf("Found\n");
-            return (table[lexeme_hash]->tokenPointer);
+            return (table[lexeme_hash].tokenPointer);
         }
         else{
             lexeme_hash = ( lexeme_hash + (probe * probe) ) % HASHTABLE_SIZE;

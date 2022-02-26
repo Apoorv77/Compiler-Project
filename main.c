@@ -2,12 +2,11 @@
 #include <stdlib.h>
 #include "hashtable.h"
 int main(){
-    hashtable* ht=NULL;
     // for(int i=0;i<HASHTABLE_SIZE;i++){
     //       ht[i].tokenPointer = NULL;
     //     ht[i].added = false;
     // }
-    ht=init_hash_table(ht);
+    init_hash_table(hashtable);
 
     printf("Returned for initialization to main\n");
 
@@ -19,10 +18,10 @@ int main(){
 
     printf("Token=> lexeme: %s \t lineno: %d \t tokenEnum: %d \n", mytoken->lexeme, mytoken->line_no, mytoken->tok);
 
-   insert_token(ht,mytoken);
+   insert_token(hashtable,mytoken);
    printf("Returned to main post insertion\n");
    
-    token* retrieved = find_token(ht,mytoken->lexeme);
+    token* retrieved = find_token(hashtable,mytoken->lexeme);
      printf("%s\n",retrieved->lexeme);
     printf("%d\n",retrieved->line_no);
      printf("%d\n",retrieved->tok);
