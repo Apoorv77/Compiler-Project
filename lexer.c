@@ -1,17 +1,40 @@
+
+#include "twinBuffer.h"
+#include "hashtable.h"
+#include<stdlib.h>
 #include<stdio.h>
+
+token* getNextToken(FILE* fp,twinBuffer* tb);
+void lexical_analysis(FILE* fp);
+
 int main(){
-
-    int state;
+    FILE* fp = fopen("test.txt", "r");
+    lexical_analysis(fp);
+}
+void lexical_analysis(FILE* fp){
+    twinBuffer *tb = (twinBuffer*) malloc (sizeof(twinBuffer));
+    int size_buffer=BUFFER_SIZE,lexeme_begin,forward;
+    tb->use='1'; //Alternate between using buffer one and two
+    
+    readIntoBuffer(fp,tb);
     char c;
+     while(!feof(fp)){
+         token* t = getNextToken(fp,tb);
+         printf("%s\n",t->lexeme);
+   }
+}
 
-    c = get_char_From_buffer(fp);
-
-    state = 0;
- 
+token* getNextToken(FILE* fp,twinBuffer* tb){
+    int state=0,found=0,idx=0;
+    char c;
+    char lexeme[50];
+    while(1 && found==0){
+    c = get_char_from_buffer(fp,tb); 
+    lexeme[idx++]=c;
     switch (state)
     {
     case 0:
-        if(c >= 'a' && c <= 'z' && !('b'<=c && c<='d')){
+        if(c >= 'a' && c <= 'z' && !('b'<= c && c <='d')){
             state = 1;
         }
         else if(c >= 'b' && c <='d')
@@ -33,9 +56,11 @@ int main(){
             {
             case '.':
                 state=22;
+                found = 1;
                 break;
             case '(':
                 state=23;
+                found = 1;
                 break;
             case '#':
                 state=24;
@@ -96,7 +121,7 @@ int main(){
                 break;
             default:
             //Retract
-                break;
+                break; 
             }
         }
         break;
@@ -106,7 +131,7 @@ int main(){
        }
        else{
             state = 2;
-            retract();
+           // //retract();
             break;
        }
        break;
@@ -119,7 +144,7 @@ int main(){
         }
         else{
             state = 7;
-            retract();
+           // //retract();
             break;
             //Retract by one
             //token funfield found
@@ -134,7 +159,7 @@ int main(){
         }
         else{
             state = 5;
-            retract();
+           // //retract();
             break;
         }
     break;
@@ -146,7 +171,7 @@ int main(){
         }
         else{
             state = 5;
-            retract();
+            //retract();
             break;
         }
     break;
@@ -160,7 +185,7 @@ int main(){
         }
         else{
             state = 9;
-            retract();
+            //retract();
             break;
         }
     
@@ -190,7 +215,7 @@ int main(){
         }
         else{
             state = 13;
-            retract();
+            ////retract();
             break;
         }
 
@@ -224,7 +249,7 @@ int main(){
     case 17:
         if(!(c >= '0' && c <= '9')){
             state = 13;
-            retract();
+            //retract();
             break;
         }
     break;
@@ -244,7 +269,7 @@ int main(){
         }
         else{
             state = 20;
-            retract();
+            ////retract();
             break;
         }
     break;
@@ -255,7 +280,7 @@ int main(){
         }
         else{
             state = 20;
-            retract();
+            //retract();
             break;
         }
     break;
@@ -275,7 +300,7 @@ int main(){
         }
         else{
             state = 26;
-            retract();
+           // //retract();
             break;
         }
 
@@ -286,12 +311,12 @@ int main(){
             state = 29;
             break;
         }
-        else if(c == '-')(
+        else if(c == '-'){
             state = 30;
-        )
+        }
         else{
             state = 33;
-            retract();
+           // //retract();
             break;
         }
     break;
@@ -379,7 +404,7 @@ int main(){
     break;
 
     case 56:
-        if(C == '='){
+        if(c == '='){
             state = 57;
             break;
         }
@@ -391,4 +416,26 @@ int main(){
         break;
     }
 }
+token * t = (token*)malloc(sizeof(token));
+t->lexeme=lexeme;
+printf("The lexeme is %s\n",t->lexeme);
+t->line_no=0;
+t->tok=1;
+return t;
+}
 
+
+void retract(twinBuffer* tb,int* lexeme_idx,char * lexeme){
+    if(tb->idx>0){
+        tb->idx--;
+    }
+    else{
+        //points to the beginning of the next buffer, so //retract to the back of the previous buffer
+        tb->idx = BUFFER_SIZE-1; //The previous buffer has to full since only then would load up the next buffer
+        if(tb->use=='1')tb->use='2';
+        else tb->use='1';
+        tb->numRead=BUFFER_SIZE; //This buffer will have all valid chars till the end
+    }
+    lexeme[*lexeme_idx]='\0';
+    *lexeme_idx = *lexeme_idx-1;
+}
