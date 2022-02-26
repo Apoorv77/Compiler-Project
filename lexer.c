@@ -1,10 +1,12 @@
 
 #include<stdlib.h>
 #include<stdio.h>
+#include<string.h>
 #include "twinBuffer.h"
 #include "hashtable.h"
 #include "lexer.h"
-token* getNextToken(FILE* fp,twinBuffer* tb);
+#include "lexerDef.h"
+token* getNextToken(FILE* fp,twinBuffer* tb,int* line_no);
 void lexical_analysis(FILE* fp);
 
 int main(){
@@ -13,25 +15,39 @@ int main(){
 }
 void lexical_analysis(FILE* fp){
     twinBuffer *tb = (twinBuffer*) malloc (sizeof(twinBuffer));
-    int size_buffer=BUFFER_SIZE,lexeme_begin,forward;
     tb->use='1'; //Alternate between using buffer one and two
-    
+    int line_no=0;
     readIntoBuffer(fp,tb);
     char c;
-     while(!feof(fp) || tb->idx != tb->numRead){
-         printf("Found token\n");
-         token* t = getNextToken(fp,tb);
-        // printf("%s\n",t->lexeme);
+int idx=0;
+     while(feof(fp) ==0 || tb->idx < tb->numRead){
+         token* t = getNextToken(fp,tb,&line_no);
    }
 }
 
-token* getNextToken(FILE* fp,twinBuffer* tb){
-    int state=0,found=0,idx=0;
+token* getNextToken(FILE* fp,twinBuffer* tb,int* line_no){
+    int state=0,found=0,lexeme_idx=0,goBack=0,errorOccured=0,temp=tb->idx;
     char c;
-    char lexeme[50];
-    while(1 && found==0){
-    c = get_char_from_buffer(fp,tb); 
-    lexeme[idx++]=c;
+    char lexeme[MAX_LEX_LEN];
+
+    //Going over the whitespace
+    while(feof(fp)==0 || tb->idx < tb->numRead){
+        c = get_char_from_buffer(fp,tb);
+        if(c=='\n')*line_no = *line_no++;
+        if(c == ' ' || c == '\n' || c=='\t')continue;
+        else{
+            tb->idx=tb->idx-1; //Retracting
+            break;
+        }
+    }
+
+
+    while(found==0 && (tb->idx< tb->numRead || feof(fp)==0) && lexeme_idx<MAX_LEX_LEN && errorOccured==0){
+     c = get_char_from_buffer(fp,tb);
+    if(c==-1){errorOccured=1;break;}
+    if(c=='\n'){*line_no = *line_no+1; break;}
+     lexeme[lexeme_idx++]=c;
+     
     switch (state)
     {
     case 0:
@@ -133,7 +149,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
                 state = 56;
                 break;
             default:
-            //Error !
+            errorOccured=1;
                 break; 
             }
         }
@@ -144,7 +160,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
        }
        else{
             state = 2;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
        }
        break;
@@ -157,7 +173,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 7;
-           retract(tb,&idx,lexeme);
+          goBack=1;
             found=1;
         }
         break;
@@ -170,7 +186,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 5;
-           retract(tb,&idx,lexeme);
+          goBack=1;
            found=1;
         }
         break;
@@ -181,7 +197,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 5;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
             break;
         }
@@ -196,7 +212,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 9;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
         }
        break;
@@ -205,7 +221,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 11;
         }   
         else{
-            //error
+            errorOccured=1;
         }
         break;
 
@@ -214,7 +230,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 12;
         }   
         else{
-            //error
+            errorOccured=1;
         }
         break;
 
@@ -224,7 +240,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 13;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
             break;
         }
@@ -238,7 +254,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 16;
         }
         else{
-            //ERROR
+            errorOccured=1;
         }
         break;
 
@@ -247,7 +263,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 16;
         }
         else{
-            //error;
+             errorOccured=1;
         }
     break;
 
@@ -257,7 +273,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             found=1;
         }
         else{
-            //error
+             errorOccured=1;
         }
     break;
 
@@ -267,7 +283,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 19;
         }
         else{
-            //error
+            errorOccured=1;
         }
     break;
 
@@ -280,7 +296,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 20;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
             break;
         }
@@ -292,7 +308,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 20;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
         }
         break;
@@ -302,7 +318,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 25;
         }
         else{
-            //error
+            errorOccured=1;
         }
     break;
 
@@ -312,7 +328,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 26;
-           retract(tb,&idx,lexeme);
+          goBack=1;
             found=1;
         }
 
@@ -328,7 +344,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 33;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
         }
     break;
@@ -339,7 +355,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 31;
         }
         else{
-            //error
+             errorOccured=1;
         }
         break;
 
@@ -350,7 +366,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             found=1;
         }
         else{
-            //error
+            errorOccured=1;
         }
     break;
 
@@ -360,7 +376,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 46;
         }
         else{
-            //Error
+             errorOccured=1;
         }
     break;
 
@@ -371,7 +387,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             break;
         }
         else{
-            //error
+             errorOccured=1;
         }
     break;
 
@@ -380,7 +396,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             state = 49;
         }
         else{
-            //error
+             errorOccured=1;
         }
     break;
 
@@ -390,7 +406,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             found=1;
         }
         else{
-            //error
+             errorOccured=1;
         }
     break;
 
@@ -401,7 +417,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
         }
         else{
             state = 52;
-            retract(tb,&idx,lexeme);
+           goBack=1;
             found=1;
         }
     break;
@@ -413,7 +429,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             break;
         }
         else{
-            //error
+             errorOccured=1;
         }
     break;
 
@@ -423,33 +439,42 @@ token* getNextToken(FILE* fp,twinBuffer* tb){
             found=1;
         }
         else{
-            //error
+             errorOccured=1;
         }
     default:
     //Error ,should never land up here
         break;
     }
 }
+if(errorOccured){
+    if(lexeme_idx==0)return NULL;
+    printf("Error occured\n");
+    //Keep moving until the end of this lexeme
+    while((feof(fp)==0) || tb->idx<tb->numRead){
+        c = get_char_from_buffer(fp,tb);
+        if(c=='\n')*line_no = *line_no +1;
+        if(c=='\t' || c=='n' || c==' ')break;
+    }
+    return NULL;
+}
+else{
+if(goBack==1){
+    retract(tb,&lexeme_idx,&lexeme);     
+}
+
 token * t = (token*)malloc(sizeof(token));
 t->lexeme=lexeme;
-printf("The lexeme is %s\n",t->lexeme);
-t->line_no=0;
-t->tok=1;
+t->lexeme[lexeme_idx]='\0';
+printf("The lexeme is %s  Line No:%d\n",t->lexeme,*line_no);
+t->line_no=*line_no;
+t->tok=state;
 return t;
+}
 }
 
 
-void retract(twinBuffer* tb,int* lexeme_idx,char * lexeme){
-    if(tb->idx>0){
-        tb->idx--;
-    }
-    else{
-        //points to the beginning of the next buffer, so //retract to the back of the previous buffer
-        tb->idx = BUFFER_SIZE-1; //The previous buffer has to full since only then would load up the next buffer
-        if(tb->use=='1')tb->use='2';
-        else tb->use='1';
-        tb->numRead=BUFFER_SIZE; //This buffer will have all valid chars till the end
-    }
-    lexeme[*lexeme_idx]='\0';
-    *lexeme_idx = *lexeme_idx-1;
+void retract(twinBuffer* tb,int *lexeme_idx,char* lexeme){
+  tb->idx = tb->idx-1;
+  *lexeme_idx = *lexeme_idx-1;
+    lexeme[*lexeme_idx]='\0';   
 }
