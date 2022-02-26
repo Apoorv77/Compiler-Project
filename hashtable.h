@@ -1,10 +1,10 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include"token.h"
 #define LEXEME_LEN_LIMIT 50
 #define HASHTABLE_SIZE 100
-
-#include"token.h"
-
-typedef struct {
-    char lexeme[LEXEME_LEN_LIMIT];
+#define HASH_MOD 100000007
+typedef struct  hashtable_element{
     token* tokenPointer;
     bool added;
 } hashtable_element;

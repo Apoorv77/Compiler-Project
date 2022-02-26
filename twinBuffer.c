@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include "twinBuffer.h"
 
-int readIntoBuffer(FILE* fp,struct twinBuffer* tb){
+int readIntoBuffer(FILE* fp,twinBuffer* tb){
     if(feof(fp))return 0;
     char c;
     for(int i=0;i<BUFFER_SIZE;i++){
@@ -21,13 +21,12 @@ int readIntoBuffer(FILE* fp,struct twinBuffer* tb){
 
 // FILE * fp; 
 
-// fp = fopen("1.txt", "r");
-
-// struct twinBuffer *tb = (struct twinBuffer*) malloc (sizeof(struct twinBuffer));
+// fp = fopen("t1.txt", "r");
+//  twinBuffer *tb = (twinBuffer*) malloc (sizeof(twinBuffer));
 // int size_buffer=BUFFER_SIZE,lexeme_begin,forward;
 // tb->use='1'; //Alternate between using buffer one and two
 // while(!feof(fp)){
-//     int numRead=readInToBuffer(fp,tb);
+//     int numRead=readIntoBuffer(fp,tb);
 //     for(int i=0;i<numRead;i++){
 //         tb->use =='1'?(printf("%c",tb->buffer1[i])):(printf("%c",tb->buffer2[i]));
 //     }
