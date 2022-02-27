@@ -6,7 +6,7 @@
 #include "hashtable.h"
 #include "lexer.h"
 #include "lexerDef.h"
-token* getNextToken(FILE* fp,twinBuffer* tb,int* line_no);
+void getNextToken(FILE* fp,twinBuffer* tb,int* line_no,token* t);
 void lexical_analysis(FILE* fp);
 
 int main(){
@@ -21,11 +21,14 @@ void lexical_analysis(FILE* fp){
     char c;
 int idx=0;
      while(feof(fp) ==0 || tb->idx < tb->numRead){
-         token* t = getNextToken(fp,tb,&line_no);
+         token* t = (token*)malloc(sizeof(token));
+         getNextToken(fp,tb,&line_no,t);
+        printf("The lexeme is %s  Line No:%d\n",t->lexeme,line_no);
+         
    }
 }
 
-token* getNextToken(FILE* fp,twinBuffer* tb,int* line_no){
+void getNextToken(FILE* fp,twinBuffer* tb,int* line_no,token* t){
     int state=0,found=0,lexeme_idx=0,goBack=0,errorOccured=0,temp=tb->idx;
     char c;
     char lexeme[MAX_LEX_LEN];
@@ -447,7 +450,7 @@ token* getNextToken(FILE* fp,twinBuffer* tb,int* line_no){
     }
 }
 if(errorOccured){
-    if(lexeme_idx==0)return NULL;
+    if(lexeme_idx==0)return ;
     printf("Error occured\n");
     //Keep moving until the end of this lexeme
     while((feof(fp)==0) || tb->idx<tb->numRead){
@@ -455,20 +458,19 @@ if(errorOccured){
         if(c=='\n')*line_no = *line_no +1;
         if(c=='\t' || c=='n' || c==' ')break;
     }
-    return NULL;
+    return ;
 }
 else{
 if(goBack==1){
     retract(tb,&lexeme_idx,&lexeme);     
 }
 
-token * t = (token*)malloc(sizeof(token));
 t->lexeme=lexeme;
 t->lexeme[lexeme_idx]='\0';
-printf("The lexeme is %s  Line No:%d\n",t->lexeme,*line_no);
+//printf("The lexeme is %s  Line No:%d\n",t->lexeme,*line_no);
 t->line_no=*line_no;
 t->tok=state;
-return t;
+return ;
 }
 }
 
