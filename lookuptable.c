@@ -9,7 +9,7 @@ int hash(char *str){
     // printf("%d\n",length);
     long long hashValue = 0,p_pow=1;
     for (int i=0;i<length;i++){
-        hashValue = (hashValue + (long long)(str[i] - 'a' + 1) * p_pow) % HASHTABLE_SIZE;
+        hashValue = (hashValue + (long long)(str[i]) * p_pow) % HASHTABLE_SIZE;
         p_pow = (p_pow * p) % HASHTABLE_SIZE;
     }
     return hashValue;
@@ -18,7 +18,7 @@ int hash(char *str){
 //Initialize hashtable
 void init_lookuptable(lookuptable_element* table){
     if(table == NULL){
-        printf("HashTable allocation not found,Creating One.\n");
+        //printf("HashTable allocation not found,Creating One.\n");
     }
     for(int i = 0; i < HASHTABLE_SIZE; i++){
         // strcpy(table[i].token_value, "");
@@ -26,7 +26,7 @@ void init_lookuptable(lookuptable_element* table){
     //   printf("checking loop %d\n", i);
     }
     
-    printf("Table Initialized\n");
+ //   printf("Table Initialized\n");
 
     add_tokens();
 
@@ -74,7 +74,7 @@ void insert_token(lookuptable_element* table,char* lexeme, char* tokenVal){
     strcpy(table[lexeme_hash].lexeme, lexeme);
     strcpy(table[lexeme_hash].token_value, tokenVal);
     table[lexeme_hash].added=true;
-    printf("Token Added: Lexeme: %s\t\t\tTokenValue: %s\n", lexeme, tokenVal);
+    //printf("Token Added: Lexeme: %s\t\t\tTokenValue: %s\n", lexeme, tokenVal);
 }
 
 //Search the hash table
@@ -96,12 +96,12 @@ char* find_token(lookuptable_element* table, char* lexeme){
     return "TK_FIELDID";
 }
 
-int main(){
-    init_lookuptable(lookuptable);
-    printf("Queried: %s \t\t Returned: %s\n", "While", find_token(lookuptable, "While"));
-    printf("Queried: %s \t\t Returned: %s\n", "definetype", find_token(lookuptable, "definetype"));
-    printf("Queried: %s \t\t Returned: %s\n", "hehe", find_token(lookuptable, "hehe"));
-}
+// int main(){
+//     init_lookuptable(lookuptable);
+//     printf("Queried: %s \t\t Returned: %s\n", "While", find_token(lookuptable, "While"));
+//     printf("Queried: %s \t\t Returned: %s\n", "definetype", find_token(lookuptable, "definetype"));
+//     printf("Queried: %s \t\t Returned: %s\n", "hehe", find_token(lookuptable, "hehe"));
+// }
 
 
 

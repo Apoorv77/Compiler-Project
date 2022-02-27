@@ -2,14 +2,17 @@
 #include<stdio.h>
 #include<string.h>
 #include "twinBuffer.h"
-#include "hashtable.h"
+//#include "hashtable.h"
+#include "lookuptable.h"
 #include "lexer.h"
+#include "token.h"
 #include "lexerDef.h"
 token* getNextToken(FILE* fp,twinBuffer* tb,int* line_no);
 void lexical_analysis(FILE* fp);
-
+char* get_token_type(token* t);
 int main(){
     FILE* fp = fopen("test.txt", "r");
+    generate_lookupTable();
     lexical_analysis(fp);
 }
 
@@ -24,17 +27,19 @@ void lexical_analysis(FILE* fp){
     while(feof(fp) == 0 || tb->idx < tb->numRead){
         token* t = getNextToken(fp, tb, &line_no);
         if(t != NULL){
-            printf("Token=> Lexeme: %s\t\t\tLineNo: %d\t\t\tTok: %d\n", t->lexeme, t->line_no, t->tok);
+           char* type = get_token_type(t);
+            printf("Token=> Lexeme: %s\t\t\tLineNo: %d\t\t\tTok: %d  Type:%s\n", t->lexeme, t->line_no, t->tok,type);
         }
         
     }
+    printf("\n");
 }
 
 
 token* getNextToken(FILE* fp, twinBuffer* tb, int* line_no){
     int state = 0, found = 0, lexeme_idx = 0, goBack = 0, errorOccured = 0, commentFound = 0;
     char c;
-    char lexeme[MAX_LEX_LEN];
+    char lexeme[LEXEME_LEN_LIMIT];
 
 
     //going to the token
@@ -58,8 +63,7 @@ token* getNextToken(FILE* fp, twinBuffer* tb, int* line_no){
 
     while(found == 0 && (feof(fp) == 0 || tb->idx < tb-> numRead) && lexeme_idx < MAX_LEX_LEN && errorOccured == 0){
         c = get_char_from_buffer(fp, tb);
-        
-
+        // printf("%c",c);
         if(c == -1){
             errorOccured = 1;
             break;
@@ -77,7 +81,10 @@ token* getNextToken(FILE* fp, twinBuffer* tb, int* line_no){
         switch (state)
     {
     case 0:
-        if(c >= 'a' && c <= 'z' && !('b'<= c && c <='d')){
+        if(c>='A' && c<='Z'){
+            state=69;
+        }
+        else if(c >= 'a' && c <= 'z' && !('b'<= c && c <='d')){
             state = 1;
         }
         else if(c >= 'b' && c <='d')
@@ -107,7 +114,6 @@ token* getNextToken(FILE* fp, twinBuffer* tb, int* line_no){
                 break;
             case '%':
                 state=27;
-                // found=1;
                 break;
             case '<':
                 state=28;
@@ -370,12 +376,11 @@ token* getNextToken(FILE* fp, twinBuffer* tb, int* line_no){
             break;
         }
 
-       break;
+    break;
 
     case 27:
-        if(c != '\n'){
-            state = 27;
-        }
+        commentFound = 1;
+        
     break;
    
     case 28:   
@@ -492,6 +497,16 @@ token* getNextToken(FILE* fp, twinBuffer* tb, int* line_no){
              errorOccured=1;
         }
     break;
+    case 69:
+       if((c >='a' && c<='z' ) || (c>='A' && c<='Z')){
+           state=69;
+           }
+       else{
+           found=1;
+           goBack=1;
+           break;
+       }
+       break;
 
     default:
         printf("No Match -> '%c'\n", c);
@@ -500,23 +515,19 @@ token* getNextToken(FILE* fp, twinBuffer* tb, int* line_no){
 
     }
 
-    // if(commentFound == 1){
-    //     printf("Comment Found: ");
-    //     while((feof(fp)==0) || tb->idx<tb->numRead){
-    //     c = get_char_from_buffer(fp,tb);
-    //     printf("%c", c);
-    //     if(c=='\n'){
+    if(commentFound == 1){
+        while((feof(fp)==0) || tb->idx<tb->numRead){
+        c = get_char_from_buffer(fp,tb);
+        if(c=='\n'){
             
-    //         *line_no = *line_no +1;
-    //         break;
-    //     }
+            *line_no = *line_no +1;
+            break;
+        }
         
-    //     }
+        }
 
-    //     printf("\n");
-
-    //     return NULL;
-    // }
+        return NULL;
+    }
 
     if(errorOccured == 1){
         printf("Line No: %d\tError: Unknown Symbol<%c>\n", *line_no, c);
@@ -543,4 +554,87 @@ void retract(twinBuffer* tb,int *lexeme_idx,char* lexeme){
     *lexeme_idx = *lexeme_idx-1; 
     lexeme[*lexeme_idx]='\0';  
     
+}
+void generate_lookupTable(){
+    init_lookuptable(lookuptable);
+    insert_token(lookuptable, "with", "TK_WITH");
+insert_token(lookuptable, "parameters", "TK_PARAMETERS");
+insert_token(lookuptable, "end", "TK_END");
+insert_token(lookuptable, "While", "TK_WHILE");
+insert_token(lookuptable, "Union", "TK_UNION");
+insert_token(lookuptable, "endunion", "TK_ENDUNION");
+insert_token(lookuptable, "as", "TK_AS");
+insert_token(lookuptable, "Type", "TK_TYPE");
+insert_token(lookuptable, "_main", "TK_MAIN");
+insert_token(lookuptable, "Global", "TK_GLOBAL");
+insert_token(lookuptable, "parameter", "TK_PARAMETER");
+insert_token(lookuptable, "List", "TK_LIST");
+insert_token(lookuptable, "Input", "TK_INPUT");
+insert_token(lookuptable, "Output", "TK_OUTPUT");
+insert_token(lookuptable, "Int", "TK_INT");
+insert_token(lookuptable, "Real", "TK_REAL");
+insert_token(lookuptable, "endwhile", "TK_ENDWHILE");
+insert_token(lookuptable, "If", "TK_IF");
+insert_token(lookuptable, "Then", "TK_THEN");
+insert_token(lookuptable, "Endif", "TK_ENDIF");
+insert_token(lookuptable, "Read", "TK_READ");
+insert_token(lookuptable, "Write", "TK_WRITE");
+insert_token(lookuptable, "Return", "TK_RETURN");
+insert_token(lookuptable, "Call", "TK_CALL");
+insert_token(lookuptable, "Record", "TK_RECORD");
+insert_token(lookuptable, "endrecord", "TK_ENDRECORD");
+insert_token(lookuptable, "Else", "TK_ELSE");
+insert_token(lookuptable, "definetype", "TK_DEFINETYPE");
+insert_token(lookuptable, ".", "TK_DOT");
+insert_token(lookuptable, "(", "TK_OP");
+insert_token(lookuptable, "%", "TK_COMMENT");
+insert_token(lookuptable, "<=", "TK_LE");
+insert_token(lookuptable, "<---", "TK_ASSIGNOP");
+insert_token(lookuptable, "<", "TK_LT");
+insert_token(lookuptable, "[", "TK_SQL");
+insert_token(lookuptable, "]", "TK_SQR");
+insert_token(lookuptable, ",", "TK_COMMA");
+insert_token(lookuptable, ";", "TK_SEM");
+insert_token(lookuptable, ":", "TK_COLON");
+insert_token(lookuptable, ")", "TK_CL");
+insert_token(lookuptable, "+", "TK_PLUS");
+insert_token(lookuptable, "-", "TK_MINUS");
+insert_token(lookuptable, "*", "TK_MUL");
+insert_token(lookuptable, "/", "TK_DIV");
+insert_token(lookuptable, "~", "TK_NOT");
+insert_token(lookuptable, "&&&", "TK_AND");
+insert_token(lookuptable, "@@@", "TK_OR");
+insert_token(lookuptable,">","TK_GT");
+insert_token(lookuptable, ">=", "TK_GE");
+insert_token(lookuptable, "!=", "TK_NE");
+
+}
+ 
+char* get_token_type(token* t){
+     char* token_type=find_token(lookuptable,t->lexeme);
+    switch (t->tok)
+    {
+    case 2:
+    if(token_type == NULL){
+        return "TK_FIELDID";
+    }
+    else return token_type;
+        break;
+    case 5:
+        return "TK_ID";
+        break;
+    case 9:
+        return "TK_NUM";
+        break;
+    case 13:
+        return "TK_RNUM";
+        break;
+    case 20:
+       return "TK_FUNID";
+       break;
+    case 26:
+        return "TK_RUID";
+        break;
+    }
+    return token_type;
 }

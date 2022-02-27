@@ -10,9 +10,9 @@
 #include "token.h"
 void getNextToken(FILE* fp,twinBuffer* tb,int* line_no,token* t);
 void lexical_analysis(FILE* fp);
-void generate_lookupTable();
+char* get_token_type(token* t);
 int main(){
-    FILE* fp = fopen("test.txt", "r");
+    FILE* fp = fopen("t1.txt", "r");
     generate_lookupTable();
     lexical_analysis(fp);
 }
@@ -22,13 +22,13 @@ void lexical_analysis(FILE* fp){
     int line_no=0;
     readIntoBuffer(fp,tb);
     char c;
+   // printf("Reached here");
 int idx=0;
      while(feof(fp) ==0 || tb->idx < tb->numRead){
          token* t = (token*)malloc(sizeof(token));
          t->tok=-1;
          getNextToken(fp,tb,&line_no,t);
-        printf("The lexeme is %s  Line No:%d\n",t->lexeme,line_no);
-         
+        printf("The lexeme is %s  Line No:%d\n",t->lexeme,line_no);         
    }
 }
 
@@ -496,35 +496,87 @@ void retract(twinBuffer* tb,int *lexeme_idx,char* lexeme){
   *lexeme_idx = *lexeme_idx-1;
     lexeme[*lexeme_idx]='\0';   
 }
-
 void generate_lookupTable(){
     init_lookuptable(lookuptable);
-    insert_token(lookuptable, "with", "TK_WITH");
-insert_token(lookuptable, "parameters", "TK_PARAMETERS");
-insert_token(lookuptable, "end", "TK_END");
-insert_token(lookuptable, "While", "TK_WHILE");
-insert_token(lookuptable, "Union", "TK_UNION");
-insert_token(lookuptable, "endunion", "TK_ENDUNION");
-insert_token(lookuptable, "as", "TK_AS");
-insert_token(lookuptable, "Type", "TK_TYPE");
-insert_token(lookuptable, "_main", "TK_MAIN");
-insert_token(lookuptable, "Global", "TK_GLOBAL");
-insert_token(lookuptable, "parameter", "TK_PARAMETER");
-insert_token(lookuptable, "List", "TK_LIST");
-insert_token(lookuptable, "Input", "TK_INPUT");
-insert_token(lookuptable, "Output", "TK_OUTPUT");
-insert_token(lookuptable, "Int", "TK_INT");
-insert_token(lookuptable, "Real", "TK_REAL");
-insert_token(lookuptable, "endwhile", "TK_ENDWHILE");
-insert_token(lookuptable, "If", "TK_IF");
-insert_token(lookuptable, "Then", "TK_THEN");
-insert_token(lookuptable, "Endif", "TK_ENDIF");
-insert_token(lookuptable, "Read", "TK_READ");
-insert_token(lookuptable, "Write", "TK_WRITE");
-insert_token(lookuptable, "Return", "TK_RETURN");
-insert_token(lookuptable, "Call", "TK_CALL");
-insert_token(lookuptable, "Record", "TK_RECORD");
-insert_token(lookuptable, "endrecord", "TK_ENDRECORD");
-insert_token(lookuptable, "Else", "TK_ELSE");
-insert_token(lookuptable, "definetype", "TK_DEFINETYPE");
+//     insert_token(lookuptable, "with", "TK_WITH");
+// insert_token(lookuptable, "parameters", "TK_PARAMETERS");
+// insert_token(lookuptable, "end", "TK_END");
+// insert_token(lookuptable, "While", "TK_WHILE");
+// insert_token(lookuptable, "Union", "TK_UNION");
+// insert_token(lookuptable, "endunion", "TK_ENDUNION");
+// insert_token(lookuptable, "as", "TK_AS");
+// insert_token(lookuptable, "Type", "TK_TYPE");
+// insert_token(lookuptable, "_main", "TK_MAIN");
+// insert_token(lookuptable, "Global", "TK_GLOBAL");
+// insert_token(lookuptable, "parameter", "TK_PARAMETER");
+// insert_token(lookuptable, "List", "TK_LIST");
+// insert_token(lookuptable, "Input", "TK_INPUT");
+// insert_token(lookuptable, "Output", "TK_OUTPUT");
+// insert_token(lookuptable, "Int", "TK_INT");
+// insert_token(lookuptable, "Real", "TK_REAL");
+// insert_token(lookuptable, "endwhile", "TK_ENDWHILE");
+// insert_token(lookuptable, "If", "TK_IF");
+// insert_token(lookuptable, "Then", "TK_THEN");
+// insert_token(lookuptable, "Endif", "TK_ENDIF");
+// insert_token(lookuptable, "Read", "TK_READ");
+// insert_token(lookuptable, "Write", "TK_WRITE");
+// insert_token(lookuptable, "Return", "TK_RETURN");
+// insert_token(lookuptable, "Call", "TK_CALL");
+// insert_token(lookuptable, "Record", "TK_RECORD");
+// insert_token(lookuptable, "endrecord", "TK_ENDRECORD");
+// insert_token(lookuptable, "Else", "TK_ELSE");
+// insert_token(lookuptable, "definetype", "TK_DEFINETYPE");
+// insert_token(lookuptable, ".", "TK_DOT");
+// insert_token(lookuptable, "(", "TK_OP");
+// insert_token(lookuptable, "%", "TK_COMMENT");
+// insert_token(lookuptable, "<=", "TK_LE");
+// insert_token(lookuptable, "<---", "TK_ASSIGNOP");
+// insert_token(lookuptable, "<", "TK_LT");
+// insert_token(lookuptable, "[", "TK_SQL");
+// insert_token(lookuptable, "]", "TK_SQR");
+// insert_token(lookuptable, ",", "TK_COMMA");
+// insert_token(lookuptable, ";", "TK_SEM");
+// insert_token(lookuptable, ":", "TK_COLON");
+// insert_token(lookuptable, ")", "TK_CL");
+// insert_token(lookuptable, "+", "TK_PLUS");
+// insert_token(lookuptable, "-", "TK_MINUS");
+// insert_token(lookuptable, "*", "TK_MUL");
+// insert_token(lookuptable, "/", "TK_DIV");
+// insert_token(lookuptable, "~", "TK_NOT");
+// insert_token(lookuptable, "&&&", "TK_AND");
+// insert_token(lookuptable, "@@@", "TK_OR");
+// insert_token(lookuptable,">","TK_GT");
+// insert_token(lookuptable, ">=", "TK_GE");
+// insert_token(lookuptable, "!=", "TK_NE");
+// insert_token(lookuptable, "definetype", "TK_DEFINETYPE");
 }
+ 
+char* get_token_type(token* t){
+     char* token_type=find_token(lookuptable,t->lexeme);
+    switch (t->tok)
+    {
+    case 2:
+    if(token_type == NULL){
+        return "TK_FIELDID";
+    }
+    else return token_type;
+        break;
+    case 5:
+        return "TK_ID";
+        break;
+    case 9:
+        return "TK_NUM";
+        break;
+    case 13:
+        return "TK_RNUM";
+        break;
+    case 20:
+       return "TK_FUNID";
+       break;
+    case 26:
+        return "TK_RUID";
+        break;
+    }
+    return token_type;
+}
+

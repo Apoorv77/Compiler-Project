@@ -10,7 +10,7 @@ int hash(char *str){
     // printf("%d\n",length);
     long long hashValue = 0,p_pow=1;
     for (int i=0;i<length;i++){
-        hashValue = (hashValue + (long long)(str[i] - 'a' + 1) * p_pow) % HASHTABLE_SIZE;
+        hashValue = (hashValue + (long long)(str[i]) * p_pow) % HASHTABLE_SIZE;
         p_pow = (p_pow * p) % HASHTABLE_SIZE;
     }
     return hashValue;
