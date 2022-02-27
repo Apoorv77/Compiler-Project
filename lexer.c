@@ -86,8 +86,15 @@ void getNextToken(FILE* fp,twinBuffer* tb,int* line_no,token* t){
                 state=24;
                 break;
             case '%':
-                state=27;
-                found=1;
+                //Have to ignore the comments and move to the next line
+                for(int i=0;i<=lexeme_idx;i++){
+                    lexeme[lexeme_idx]='\0';
+                    lexeme_idx=0;
+                }
+                while(feof(fp)==0 || (tb->idx<tb->numRead)){
+                    c = get_char_from_buffer(fp,tb);
+                    if(c == '\n'){*line_no=*line_no+1;break;}
+                }
                 break;
             case '<':
                 state=28;
@@ -449,12 +456,17 @@ void getNextToken(FILE* fp,twinBuffer* tb,int* line_no,token* t){
         break;
     }
 }
+if(errorOccured== 0 && (lexeme_idx == MAX_LEX_LEN)){
+    printf("Error: Going over the max permissible length");
+    errorOccured=1;
+}
 if(errorOccured){
     if(lexeme_idx==0)return ;
     printf("Error occured\n");
     //Keep moving until the end of this lexeme
     while((feof(fp)==0) || tb->idx<tb->numRead){
         c = get_char_from_buffer(fp,tb);
+        if(c==-1)return; //Reached the eof
         if(c=='\n')*line_no = *line_no +1;
         if(c=='\t' || c=='n' || c==' ')break;
     }
