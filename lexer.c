@@ -3,14 +3,17 @@
 #include<stdio.h>
 #include<string.h>
 #include "twinBuffer.h"
-#include "hashtable.h"
+//#include "hashtable.h"
 #include "lexer.h"
 #include "lexerDef.h"
+#include "lookuptable.h"
+#include "token.h"
 void getNextToken(FILE* fp,twinBuffer* tb,int* line_no,token* t);
 void lexical_analysis(FILE* fp);
-
+void generate_lookupTable();
 int main(){
     FILE* fp = fopen("test.txt", "r");
+    generate_lookupTable();
     lexical_analysis(fp);
 }
 void lexical_analysis(FILE* fp){
@@ -22,6 +25,7 @@ void lexical_analysis(FILE* fp){
 int idx=0;
      while(feof(fp) ==0 || tb->idx < tb->numRead){
          token* t = (token*)malloc(sizeof(token));
+         t->tok=-1;
          getNextToken(fp,tb,&line_no,t);
         printf("The lexeme is %s  Line No:%d\n",t->lexeme,line_no);
          
@@ -491,4 +495,36 @@ void retract(twinBuffer* tb,int *lexeme_idx,char* lexeme){
   tb->idx = tb->idx-1;
   *lexeme_idx = *lexeme_idx-1;
     lexeme[*lexeme_idx]='\0';   
+}
+
+void generate_lookupTable(){
+    init_lookuptable(lookuptable);
+    insert_token(lookuptable, "with", "TK_WITH");
+insert_token(lookuptable, "parameters", "TK_PARAMETERS");
+insert_token(lookuptable, "end", "TK_END");
+insert_token(lookuptable, "While", "TK_WHILE");
+insert_token(lookuptable, "Union", "TK_UNION");
+insert_token(lookuptable, "endunion", "TK_ENDUNION");
+insert_token(lookuptable, "as", "TK_AS");
+insert_token(lookuptable, "Type", "TK_TYPE");
+insert_token(lookuptable, "_main", "TK_MAIN");
+insert_token(lookuptable, "Global", "TK_GLOBAL");
+insert_token(lookuptable, "parameter", "TK_PARAMETER");
+insert_token(lookuptable, "List", "TK_LIST");
+insert_token(lookuptable, "Input", "TK_INPUT");
+insert_token(lookuptable, "Output", "TK_OUTPUT");
+insert_token(lookuptable, "Int", "TK_INT");
+insert_token(lookuptable, "Real", "TK_REAL");
+insert_token(lookuptable, "endwhile", "TK_ENDWHILE");
+insert_token(lookuptable, "If", "TK_IF");
+insert_token(lookuptable, "Then", "TK_THEN");
+insert_token(lookuptable, "Endif", "TK_ENDIF");
+insert_token(lookuptable, "Read", "TK_READ");
+insert_token(lookuptable, "Write", "TK_WRITE");
+insert_token(lookuptable, "Return", "TK_RETURN");
+insert_token(lookuptable, "Call", "TK_CALL");
+insert_token(lookuptable, "Record", "TK_RECORD");
+insert_token(lookuptable, "endrecord", "TK_ENDRECORD");
+insert_token(lookuptable, "Else", "TK_ELSE");
+insert_token(lookuptable, "definetype", "TK_DEFINETYPE");
 }
