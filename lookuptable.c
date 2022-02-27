@@ -61,6 +61,29 @@ void add_tokens(){
     insert_token(lookuptable, "endrecord", "TK_ENDRECORD");
     insert_token(lookuptable, "Else", "TK_ELSE");
     insert_token(lookuptable, "definetype", "TK_DEFINETYPE");
+    insert_token(lookuptable, ".", "TK_DOT");
+    insert_token(lookuptable, "(", "TK_OP");
+    insert_token(lookuptable, "%", "TK_COMMENT");
+    insert_token(lookuptable, "<=", "TK_LE");
+    insert_token(lookuptable, "<---", "TK_ASSIGNOP");
+    insert_token(lookuptable, "<", "TK_LT");
+    insert_token(lookuptable, "[", "TK_SQL");
+    insert_token(lookuptable, "]", "TK_SQR");
+    insert_token(lookuptable, ",", "TK_COMMA");
+    insert_token(lookuptable, ";", "TK_SEM");
+    insert_token(lookuptable, ":", "TK_COLON");
+    insert_token(lookuptable, ")", "TK_CL");
+    insert_token(lookuptable, "+", "TK_PLUS");
+    insert_token(lookuptable, "-", "TK_MINUS");
+    insert_token(lookuptable, "*", "TK_MUL");
+    insert_token(lookuptable, "/", "TK_DIV");
+    insert_token(lookuptable, "~", "TK_NOT");
+    insert_token(lookuptable, "&&&", "TK_AND");
+    insert_token(lookuptable, "@@@", "TK_OR");
+    insert_token(lookuptable, ">", "TK_GT");
+    insert_token(lookuptable, ">=", "TK_GE");
+    insert_token(lookuptable, "!=", "TK_NE");
+    insert_token(lookuptable, "definetype", "TK_DEFINETYPE");
 }
 
 //Insert
@@ -82,6 +105,7 @@ char* find_token(lookuptable_element* table, char* lexeme){
 
     int lexeme_hash = hash(lexeme);
     int probe = 1;
+
 
     while(table[lexeme_hash].added){
         if(strcmp(table[lexeme_hash].lexeme, lexeme) == 0){
