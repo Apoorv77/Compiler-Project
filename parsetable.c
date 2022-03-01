@@ -1,4 +1,5 @@
 #include "parsetable.h"
+#include "first_And_follow.h"
 #include <stdio.h>
 
 void init_parsetable(){
@@ -22,6 +23,7 @@ void init_fromfirstset(FirstAndFollow* ruleset){
             if(ter_Ref != -1 && nonT_Ref != -1){
                 parsetable[nonT_Ref][ter_Ref] = i;
             }
+            firstTraversal = firstTraversal->next;
         }
 
     }
