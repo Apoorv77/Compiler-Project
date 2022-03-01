@@ -38,12 +38,14 @@ lhs* take_input_from_grammar_file(FILE* ptr)
             }
             ch = fgetc(ptr);
         }
+        int order = 0;
+        int or_no = 0;
         while(ch!='\n'||ch!=EOF)
         {
             // printf("%c",ch);
-            int order = 0;
-            int or_no = 0;
-            // rhs* temp;
+            
+           
+            rhs* temp;
             if(ch=='<')
             {
                 char string[MAX_SIZE_OF_SYMBOL];
@@ -53,15 +55,17 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                     ch = fgetc(ptr);
                     // printf("%c",ch);
                     if(ch=='>')
-                    {rhs* temp;
+                    {
                         string[i] = '\0';
                         if(order==0)
                         {  
                             grammar[rule_no].rule[or_no] = (rhs*)malloc(sizeof(rhs));
                             temp = grammar[rule_no].rule[or_no];
                         }
-                        for(int j =0;string[j]!='\0';j++)
+                        int j=0;
+                        for(j =0;string[j]!='\0';j++)
                         temp->token[j] = string[j]/*,printf("%c",string[j])*/;
+                        temp->token[j]='\0';
                         temp->isNonTerm = 0;                        
                         temp->next = (rhs*)malloc(sizeof(rhs));
                         temp = temp->next;
@@ -85,14 +89,16 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                         // printf("HELLO");
                         // printf("%c",ch);
                         string[i] = '\0';
-                         rhs* temp;
+                         
                         if(order==0)
                         { 
                             grammar[rule_no].rule[or_no] = (rhs*)malloc(sizeof(rhs));
                             temp = grammar[rule_no].rule[or_no];
                         }
-                        for(int j =0;string[j]!='\0';j++)
+                        int j=0;
+                        for(j =0;string[j]!='\0';j++)
                         temp->token[j] = string[j]/*,printf("%c",string[j])*/;
+                        temp->token[j]='\0';
                         temp->isNonTerm = 1;                        
                         temp->next = (rhs*)malloc(sizeof(rhs));
                         temp = temp->next;
@@ -127,6 +133,7 @@ lhs* take_input_from_grammar_file(FILE* ptr)
             {
                 // temp = NULL;
                 or_no++;
+                order=0;
                 ch = fgetc(ptr);
             }
             else if(ch==' ')
@@ -155,5 +162,5 @@ void main()
         return;
     }
     lhs* input_grammar = take_input_from_grammar_file(input);
-    printf("%s", input_grammar[1].rule[0]->isNonTerm);
+    printf("%s", input_grammar[0].rule[4]->token);
 }
