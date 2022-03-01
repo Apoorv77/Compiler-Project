@@ -14,5 +14,7 @@ typedef struct FirstAndFollow{
     char token[50];
     first* First;
     follow* Follow;
+    int epsPres;
+    int dollarPres;
 }firstAndfollow;
 
