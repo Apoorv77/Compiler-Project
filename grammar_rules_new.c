@@ -162,5 +162,5 @@ void main()
         return;
     }
     lhs* input_grammar = take_input_from_grammar_file(input);
-    printf("%s", input_grammar[0].rule[4]->token);
+    printf("%s\n", input_grammar[0].rule[4]->token);
 }
