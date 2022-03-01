@@ -21,7 +21,7 @@ void init_fromfirstset(FirstAndFollow* ruleset){
         while(firstTraversal != NULL){
             ter_Ref = getTerminalNumber(firstTraversal.token);
             if(ter_Ref != -1 && nonT_Ref != -1){
-                parsetable[nonT_Ref][ter_Ref] = i;
+                parsetable[nonT_Ref][ter_Ref] = nonT_ref;
             }
             firstTraversal = firstTraversal->next;
         }
