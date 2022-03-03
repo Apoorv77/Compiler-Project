@@ -2,6 +2,15 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
         "stdio.h": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "first_and_follow.h": "c",
+        "array": "c",
+        "deque": "c",
+        "string": "c",
+        "vector": "c",
+        "iterator": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "unordered_map": "c"
     }
 }

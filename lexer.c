@@ -1,32 +1,39 @@
+/************************
+        |GROUP 19|
+    Apoorv Badar      2019A7PS0060P
+    Parth Bisen       2019A7PS0073P
+    Vibha Rao         2019A7PS0132P
+    Amish Bhat        2019A7PS0140P
+    Aniruddha Trivedi 2019A7PS0073P
+*******************/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "twinBuffer.h"
-//#include "hashtable.h"
 #include "lexer.h"
 #include "lexerDef.h"
 #include "lookuptable.h"
 
 
-int main()
-{
-    FILE *fp = fopen("t1.txt", "r");
-    init_lookuptable(lookuptable);
-    lexical_analysis(fp);
-}
+// int main()
+// {
+//     FILE *fp = fopen("t1.txt", "r");
+//     
+//     lexical_analysis(fp);
+// }
 void lexical_analysis(FILE *fp)
-{
+{  init_lookuptable(lookuptable);
     twinBuffer *tb = (twinBuffer *)malloc(sizeof(twinBuffer));
     tb->use = '1'; // Alternate between using buffer one and two
     int line_no = 1;
     readIntoBuffer(fp, tb);
     char c;
-    FILE *op =fopen("op.txt", "w");
+    FILE *op =fopen("Output_LexicalAnalysis.txt", "w");
+    FILE *onlitokens =fopen("onliTokens.txt", "w");
     // printf("Reached here");
     int idx = 0;
     while (feof(fp) == 0 || tb->idx < tb->numRead)
     {
-        token* t = getNextToken(fp, tb, &line_no, op);
+        token* t = getNextToken(fp, tb, &line_no, op, onlitokens);
         if (t != NULL && t->lexeme != NULL)
         {
             // printf("%s %d %d", t->lexeme, t->line_no, t->tok);
@@ -36,13 +43,18 @@ void lexical_analysis(FILE *fp)
             int tempTok = t->tok;
             // printf("Lexeme: %s, Tok: %d\n", tempLexeme, tempTok);
             char *tokenType = get_token_type(tempLexeme, tempTok);
+            printf("Line  no. %d\t\tLexeme %s\t\tToken %s\n", t->line_no, tempLexeme, tokenType);
+            if(t->tok != 27){
             fprintf(op,"Line  no. %d\t\tLexeme %s\t\tToken %s\n", t->line_no, tempLexeme, tokenType);
+            fprintf(onlitokens, "%d %s\n", line_no, tokenType);
+            }
         }
     }
     fclose(op);
+    fclose(onlitokens);
 }
 
-token* getNextToken(FILE *fp, twinBuffer *tb, int *line_no, FILE* op)
+token* getNextToken(FILE *fp, twinBuffer *tb, int *line_no, FILE* op, FILE* onlitokens)
 {
     int state = 0, found = 0, lexeme_idx = 0, goBack = 0, errorOccured = 0, temp = tb->idx;
     char c;
@@ -134,6 +146,8 @@ token* getNextToken(FILE *fp, twinBuffer *tb, int *line_no, FILE* op)
                         lexeme[lexeme_idx] = '\0';
                         lexeme_idx = 0;
                     }
+                    lexeme[lexeme_idx]='%';
+                    lexeme_idx++;
                     while (feof(fp) == 0 || (tb->idx < tb->numRead))
                     {
                         c = get_char_from_buffer(fp, tb);
@@ -143,6 +157,8 @@ token* getNextToken(FILE *fp, twinBuffer *tb, int *line_no, FILE* op)
                             break;
                         }
                     }
+                    state = 27;
+                    found = 1;
                     break;
                 case '<':
                     state = 28;
@@ -591,6 +607,9 @@ token* getNextToken(FILE *fp, twinBuffer *tb, int *line_no, FILE* op)
     //     }
     //     return;
     // }
+    if(lexeme_idx == 0){
+        return NULL;
+    }
     if(state == 5 && lexeme_idx >20){
         //Variable identifiers with length > 20
         // found=0;
@@ -607,14 +626,18 @@ token* getNextToken(FILE *fp, twinBuffer *tb, int *line_no, FILE* op)
             // return NULL;
         // }
         lexeme[lexeme_idx]='\0';
+        printf("Line No: %d\tError: Unknown Symbol<%s>\n", *line_no, lexeme);
         fprintf(op,"Line No: %d\tError: Unknown Symbol<%s>\n", *line_no, lexeme);
+        fprintf(onlitokens, "%d %s\n", *line_no, lexeme);
         return NULL;
     }
     else if(errorOccured==2){
+        printf("Error :Variable Identifier is longer than the prescribed length of 20 characters.\n");
         fprintf(op,"Error :Variable Identifier is longer than the prescribed length of 20 characters.\n");
         return NULL;
     }
     else if(errorOccured ==3){
+        printf("Error :Function Identifier is longer than the prescribed length of 30 characters.\n");
         fprintf(op,"Error :Function Identifier is longer than the prescribed length of 30 characters.\n");
         return NULL;
     }
@@ -623,6 +646,9 @@ token* getNextToken(FILE *fp, twinBuffer *tb, int *line_no, FILE* op)
         t->lexeme[lexeme_idx] = '\0';
         // printf("The lexeme is %s  Line No:%d\n",t->lexeme,*line_no);
         t->line_no = *line_no;
+        if(state == 27){
+            t->line_no = t->line_no -1;
+        }
         t->tok = state;
         return t; 
 }

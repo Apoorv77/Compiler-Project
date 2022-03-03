@@ -1,3 +1,11 @@
+/************************
+        |GROUP 19|
+    Apoorv Badar      2019A7PS0060P
+    Parth Bisen       2019A7PS0073P
+    Vibha Rao         2019A7PS0132P
+    Amish Bhat        2019A7PS0140P
+    Aniruddha Trivedi 2019A7PS0073P
+*******************/
 #include <stdio.h>
 # define MAX_SIZE_OF_SYMBOL 50
 /*
@@ -126,7 +134,7 @@ typedef enum{
 	GOTO
 }Terminal;
 
-#define sizeOfGrammer 45 //this is the number of grammmar rules in the grammar given by maam.
+#define sizeOfGrammer 53 //this is the number of grammmar rules in the grammar given by maam.
 
 // we have to put -1 in one of the two in the symbol struct. Symbol can be either a terminal or a non terminal
 // struct symbol{
@@ -167,6 +175,7 @@ typedef enum{
 typedef struct Rhs{
 	char token[50];
 	int isNonTerm; // 1 = terminal && 0 = nonterminal 
+	int or_no;
 	struct Rhs* next;
 }rhs;
 
@@ -178,7 +187,8 @@ typedef struct Rhs{
 typedef struct Lhs{
 	char nonterminal[50];
 	rhs* rule[10]; // 10 is the maximum or's that we can have in a grammar rule.
+	int isEpsilon; // 0 = false && 1 = true
 }lhs;
 
 lhs* grammar;
-
+lhs* take_input_from_grammar_file(FILE* ptr);

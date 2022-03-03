@@ -1,0 +1,2 @@
+
+firstAndfollow * populateFirstandFollow(FILE* ptr);

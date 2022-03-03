@@ -1,4 +1,4 @@
- /************************
+/************************
         |GROUP 19|
     Apoorv Badar      2019A7PS0060P
     Parth Bisen       2019A7PS0073P
@@ -6,6 +6,6 @@
     Amish Bhat        2019A7PS0140P
     Aniruddha Trivedi 2019A7PS0073P
 *******************/
- //all data definitions used in lexer.c 
- #include<stdio.h>
- #define MAX_LEX_LEN 45
+#include<stdio.h>
+void removeComments(FILE* fp);
+void helper(char* inputStream,char* outputStream,int lenRead);
