@@ -31,6 +31,7 @@ int findOrNo(char *lexeme, int lineNo, lhs *Grammar, firstAndfollow *fnf)
         printf("$ found\n");
     }
 
+
     for (int i = 0; i < 10; i++)
     {
 
@@ -51,7 +52,7 @@ int findOrNo(char *lexeme, int lineNo, lhs *Grammar, firstAndfollow *fnf)
 
             if (ruleTraversal->token[0] != 'T' && ruleTraversal->token[1] != 'K')
             {
-                printf("Going Into %s Looking For %s\n", ruleTraversal->token, lexeme);
+                // printf("Going Into %s Looking For %s\n", ruleTraversal->token, lexeme);
                 int temp = findOrNo(lexeme, getNonTerminalNumber(ruleTraversal->token), Grammar, fnf);
                 if (temp != -1)
                 {
@@ -60,18 +61,18 @@ int findOrNo(char *lexeme, int lineNo, lhs *Grammar, firstAndfollow *fnf)
             }
             if (Grammar[lineNo].isEpsilon == 1)
             {
-                printf("EPS Found going into followset of %s\n", Grammar[lineNo].nonterminal);
+                // printf("EPS Found going into followset of %s\n", Grammar[lineNo].nonterminal);
                 follow *travtemp = fnf[getNonTerminalNumber(Grammar[lineNo].nonterminal)].Follow;
                 while (travtemp != NULL)
                 {
-                    printf("%s->", travtemp->token);
+                    // printf("%s->", travtemp->token);
 
                     if(travtemp->token[strlen(travtemp->token) - 1] == '\n'){
                         travtemp->token[strlen(travtemp->token) - 1] = '\0';
                     }
                     if (strcmp(travtemp->token, lexeme) == 0)
                     {   
-                        printf("Found %s in followset of %s\n", lexeme, Grammar[lineNo].nonterminal);
+                        // printf("Found %s in followset of %s\n", lexeme, Grammar[lineNo].nonterminal);
                         return i;
                     }
                     else
@@ -79,7 +80,7 @@ int findOrNo(char *lexeme, int lineNo, lhs *Grammar, firstAndfollow *fnf)
                         travtemp = travtemp->next;
                     }
                 }
-                printf("\n");
+                // printf("\n");
             }
         }
     }
@@ -93,24 +94,31 @@ void init_fromfirstset(firstAndfollow *ruleset, lhs *Grammar)
 {
     for (int i = 0; i < NON_TERMINAL_COUNT; i++)
     {
+        printf("Non Terminal being searched: %s\n", ruleset[i].token);
         first *firstTraversal = ruleset[i].First;
         int nonT_Ref = -1;
         int ter_Ref = -1;
         int orRef = -1;
 
-        nonT_Ref = getNonTerminalNumber(ruleset[i].token);
+        nonT_Ref = getNonTerminalNumber(firstTraversal->token);
+
+        if(firstTraversal->token[strlen(firstTraversal->token) - 1] == '\n'){
+        printf("New line in findor lexeme\n");
+        firstTraversal->token[strlen(firstTraversal->token) - 1] = '\0';
+    }
 
         while (firstTraversal != NULL)
         {
-
+            printf("Inside First Set: %s\n", firstTraversal->token);
             ter_Ref = getTerminalNumber(firstTraversal->token);
+            printf("Number: %d\n", ter_Ref);
 
             if (ter_Ref != -1 && nonT_Ref != -1)
             {
                 orRef = findOrNo(firstTraversal->token, nonT_Ref, Grammar, ruleset);
                 parsetable[nonT_Ref][ter_Ref].rule_number = nonT_Ref;
                 parsetable[nonT_Ref][ter_Ref].or_no = orRef;
-                printf("added first %d %d %d\n", nonT_Ref, ter_Ref, orRef);
+                printf("Added Lexeme: %s LineNo: %d OrNumber: %d\n", firstTraversal->token, nonT_Ref, orRef);
             }
             firstTraversal = firstTraversal->next;
         }
@@ -132,18 +140,18 @@ void init_fromfirstset(firstAndfollow *ruleset, lhs *Grammar)
                 orRef = findOrNo(traversal->token, nonT_Ref, Grammar, ruleset);
                 parsetable[nonT_Ref][ter_Ref].rule_number = nonT_Ref;
                 parsetable[nonT_Ref][ter_Ref].or_no = orRef;
-                printf("epsilon added first %d %d %d\n", nonT_Ref, ter_Ref, orRef);
+                // printf("epsilon added first %d %d %d\n", nonT_Ref, ter_Ref, orRef);
             }
             traversal = traversal->next;
-
-            if (ruleset[i].dollarPres == 1)
-            {
-            nonT_Ref = getNonTerminalNumber(ruleset[i].token);
-            orRef = findOrNo("$", nonT_Ref, Grammar, ruleset);
-            parsetable[nonT_Ref][DOLLAR_NOS].rule_number = nonT_Ref;
-            parsetable[nonT_Ref][DOLLAR_NOS].or_no = orRef;
-            }
         }
+
+        // if (ruleset[i].dollarPres == 1)
+        //     {
+        //     nonT_Ref = getNonTerminalNumber(ruleset[i].token);
+        //     orRef = findOrNo("$", nonT_Ref, Grammar, ruleset);
+        //     parsetable[nonT_Ref][DOLLAR_NOS].rule_number = nonT_Ref;
+        //     parsetable[nonT_Ref][DOLLAR_NOS].or_no = orRef;
+        // }
 
 
         }
@@ -191,9 +199,10 @@ void init_fromfirstset(firstAndfollow *ruleset, lhs *Grammar)
 int getTerminalNumber(char *lexeme)
 {
     for (int i = 0; i < 60; i++)
-    {
+    {   
         if (strcmp(lexeme, terminals[i]) == 0)
         {
+            
             return i;
         }
     }

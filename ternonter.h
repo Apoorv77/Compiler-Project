@@ -8,7 +8,9 @@
 *******************/
 #include<stdio.h>
 #include<stdlib.h>
-char terminals[60][20] = {"TK_ASSIGNOP",
+
+char terminals[60][20] = {
+"TK_ASSIGNOP",
 "TK_COMMENT",
 "TK_FIELDID",
 "TK_ID",

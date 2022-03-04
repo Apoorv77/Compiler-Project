@@ -119,7 +119,7 @@ treenode *parser(char *inputFile, parseUnit **parsetable /*[NON_TERMINALS_COUNT]
             int row = getNonTerminalNumber(tempo->arr);
             printf("bhow bhow 2.3\n");
             printf("%d %d\n", row, col);
-            parseUnit* pu = returnElement(row,col);
+            parseUnit* pu = returnElement(38,5);
             printf("hell : %d %d\n", pu->rule_number, pu->or_no);
             if (pu->rule_number == -1)
             {
