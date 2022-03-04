@@ -192,7 +192,7 @@ void printgrammar(lhs* gram)
 
 // void main()
 // {
-//     FILE* input = fopen("grammar_test_file_temp.txt", "r");
+//     FILE* input = fopen("grammar_test_file.txt", "r");
 //     if(input==NULL){
 //         fprintf(stderr, "Error Opening Grammar File\n");
 //         return;
@@ -202,5 +202,5 @@ void printgrammar(lhs* gram)
 //     // if(grammar[0].rule[0]->nex==NULL)
 //     // printf("HUE HUE HUE");
 //     // printf("%s, %d", grammar[0].rule[1]->token,grammar[0].rule[1]->or_no);
-//     printgrammar(grammar);
+//     printf("Final: %d\n", grammar[12].isEpsilon);
 // }

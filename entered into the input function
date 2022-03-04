@@ -1,0 +1,652 @@
+entered into the input function
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051
+GRammar taken in successfully
+FNF done.
+Parse Table Initialized
+Going Into otherFunctions Looking For TK_FUNID
+Going Into function Looking For TK_FUNID
+added first 0 6 0
+Going Into function Looking For TK_FUNID
+added first 2 6 0
+added first 5 20 0
+Going Into dataType Looking For TK_INT
+Going Into primitiveDatatype Looking For TK_INT
+added first 6 21 0
+Going Into dataType Looking For TK_REAL
+Going Into primitiveDatatype Looking For TK_REAL
+added first 6 22 1
+Going Into dataType Looking For TK_RECORD
+Going Into primitiveDatatype Looking For TK_RECORD
+NoMatch: TK_RECORD
+Going Into constructedDatatype Looking For TK_RECORD
+Going Into A Looking For TK_RECORD
+added first 6 41 0
+Going Into primitiveDatatype Looking For TK_INT
+added first 7 21 0
+Going Into primitiveDatatype Looking For TK_REAL
+added first 7 22 1
+Going Into primitiveDatatype Looking For TK_RECORD
+NoMatch: TK_RECORD
+Going Into constructedDatatype Looking For TK_RECORD
+Going Into A Looking For TK_RECORD
+added first 7 41 0
+added first 8 21 0
+Going Into A Looking For TK_RECORD
+added first 9 41 0
+added first 10 23 0
+Going Into typeDefinitions Looking For TK_RECORD
+Going Into typeDefinition Looking For TK_RECORD
+added first 11 41 0
+Going Into typeDefinitions Looking For TK_TYPE
+Going Into typeDefinition Looking For TK_TYPE
+NoMatch: TK_TYPE
+EPS Found going into followset of typeDefinitions
+TK_TYPE->Found TK_TYPE in followset of typeDefinitions
+added first 11 12 0
+Going Into typeDefinitions Looking For TK_ID
+Going Into typeDefinition Looking For TK_ID
+NoMatch: TK_ID
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->Found TK_ID in followset of typeDefinitions
+added first 11 3 0
+Going Into typeDefinitions Looking For TK_WHILE
+Going Into typeDefinition Looking For TK_WHILE
+NoMatch: TK_WHILE
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->Found TK_WHILE in followset of typeDefinitions
+added first 11 11 0
+Going Into typeDefinitions Looking For TK_IF
+Going Into typeDefinition Looking For TK_IF
+NoMatch: TK_IF
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->Found TK_IF in followset of typeDefinitions
+added first 11 30 0
+Going Into typeDefinitions Looking For TK_READ
+Going Into typeDefinition Looking For TK_READ
+NoMatch: TK_READ
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->Found TK_READ in followset of typeDefinitions
+added first 11 33 0
+Going Into typeDefinitions Looking For TK_WRITE
+Going Into typeDefinition Looking For TK_WRITE
+NoMatch: TK_WRITE
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->Found TK_WRITE in followset of typeDefinitions
+added first 11 34 0
+Going Into typeDefinitions Looking For TK_SQL
+Going Into typeDefinition Looking For TK_SQL
+NoMatch: TK_SQL
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->TK_DEFINETYPE->TK_RETURN->TK_SQL->Found TK_SQL in followset of typeDefinitions
+added first 11 17 0
+Going Into typeDefinitions Looking For TK_CALL
+Going Into typeDefinition Looking For TK_CALL
+NoMatch: TK_CALL
+EPS Found going into followset of typeDefinitions
+->_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->TK_DEFINETYPE->TK_RETURN->TK_SQL->TK_CALL
+NoMatch: TK_CALL
+NoMatch: TK_CALL
+added first 11 40 -1
+Going Into typeDefinition Looking For TK_RECORD
+added first 12 41 0
+Going Into typeDefinition Looking For TK_TYPE
+NoMatch: TK_TYPE
+EPS Found going into followset of typeDefinitions
+TK_TYPE->Found TK_TYPE in followset of typeDefinitions
+epsilon added first 12 12 0
+Going Into typeDefinition Looking For TK_ID
+NoMatch: TK_ID
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->Found TK_ID in followset of typeDefinitions
+epsilon added first 12 3 0
+Going Into typeDefinition Looking For TK_WHILE
+NoMatch: TK_WHILE
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->Found TK_WHILE in followset of typeDefinitions
+epsilon added first 12 11 0
+Going Into typeDefinition Looking For TK_IF
+NoMatch: TK_IF
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->Found TK_IF in followset of typeDefinitions
+epsilon added first 12 30 0
+Going Into typeDefinition Looking For TK_READ
+NoMatch: TK_READ
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->Found TK_READ in followset of typeDefinitions
+epsilon added first 12 33 0
+Going Into typeDefinition Looking For TK_WRITE
+NoMatch: TK_WRITE
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->Found TK_WRITE in followset of typeDefinitions
+epsilon added first 12 34 0
+Going Into typeDefinition Looking For TK_RETURN
+NoMatch: TK_RETURN
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->TK_DEFINETYPE->TK_RETURN->Found TK_RETURN in followset of typeDefinitions
+epsilon added first 12 35 0
+Going Into typeDefinition Looking For TK_SQL
+NoMatch: TK_SQL
+EPS Found going into followset of typeDefinitions
+TK_TYPE->TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->TK_DEFINETYPE->TK_RETURN->TK_SQL->Found TK_SQL in followset of typeDefinitions
+epsilon added first 12 17 0
+added first 13 41 0
+Going Into fieldDefinition Looking For TK_TYPE
+added first 16 12 0
+Going Into fieldDefinition Looking For TK_ENDRECORD
+NoMatch: TK_ENDRECORD
+EPS Found going into followset of moreFields
+TK_ENDRECORD->Found TK_ENDRECORD in followset of moreFields
+epsilon added first 16 42 0
+Going Into declaration Looking For TK_TYPE
+added first 17 12 0
+Going Into declaration Looking For TK_ID
+NoMatch: TK_ID
+EPS Found going into followset of declarations
+TK_ID->Found TK_ID in followset of declarations
+epsilon added first 17 3 0
+Going Into declaration Looking For TK_WHILE
+NoMatch: TK_WHILE
+EPS Found going into followset of declarations
+TK_ID->TK_WHILE->Found TK_WHILE in followset of declarations
+epsilon added first 17 11 0
+Going Into declaration Looking For TK_IF
+NoMatch: TK_IF
+EPS Found going into followset of declarations
+TK_ID->TK_WHILE->TK_IF->Found TK_IF in followset of declarations
+epsilon added first 17 30 0
+Going Into declaration Looking For TK_READ
+NoMatch: TK_READ
+EPS Found going into followset of declarations
+TK_ID->TK_WHILE->TK_IF->TK_READ->Found TK_READ in followset of declarations
+epsilon added first 17 33 0
+Going Into declaration Looking For TK_WRITE
+NoMatch: TK_WRITE
+EPS Found going into followset of declarations
+TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->Found TK_WRITE in followset of declarations
+epsilon added first 17 34 0
+Going Into declaration Looking For TK_SQL
+NoMatch: TK_SQL
+EPS Found going into followset of declarations
+TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->TK_SQL->Found TK_SQL in followset of declarations
+epsilon added first 17 17 0
+Going Into declaration Looking For TK_CALL
+NoMatch: TK_CALL
+EPS Found going into followset of declarations
+TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->TK_SQL->TK_CALL->Found TK_CALL in followset of declarations
+epsilon added first 17 40 0
+Going Into declaration Looking For TK_RETURN
+NoMatch: TK_RETURN
+EPS Found going into followset of declarations
+TK_ID->TK_WHILE->TK_IF->TK_READ->TK_WRITE->TK_SQL->TK_CALL->TK_DEFINETYPE->TK_RETURN->Found TK_RETURN in followset of declarations
+epsilon added first 17 35 0
+added first 19 25 0
+Going Into stmt Looking For TK_ID
+Going Into assignmentStmt Looking For TK_ID
+Going Into singleOrRecId Looking For TK_ID
+added first 20 3 0
+Going Into stmt Looking For TK_WHILE
+Going Into assignmentStmt Looking For TK_WHILE
+Going Into singleOrRecId Looking For TK_WHILE
+NoMatch: TK_WHILE
+NoMatch: TK_WHILE
+Going Into iterativeStmt Looking For TK_WHILE
+added first 20 11 0
+Going Into stmt Looking For TK_IF
+Going Into assignmentStmt Looking For TK_IF
+Going Into singleOrRecId Looking For TK_IF
+NoMatch: TK_IF
+NoMatch: TK_IF
+Going Into iterativeStmt Looking For TK_IF
+NoMatch: TK_IF
+Going Into conditionalStmt Looking For TK_IF
+added first 20 30 0
+Going Into stmt Looking For TK_READ
+Going Into assignmentStmt Looking For TK_READ
+Going Into singleOrRecId Looking For TK_READ
+NoMatch: TK_READ
+NoMatch: TK_READ
+Going Into iterativeStmt Looking For TK_READ
+NoMatch: TK_READ
+Going Into conditionalStmt Looking For TK_READ
+NoMatch: TK_READ
+Going Into ioStmt Looking For TK_READ
+added first 20 33 1
+Going Into stmt Looking For TK_WRITE
+Going Into assignmentStmt Looking For TK_WRITE
+Going Into singleOrRecId Looking For TK_WRITE
+NoMatch: TK_WRITE
+NoMatch: TK_WRITE
+Going Into iterativeStmt Looking For TK_WRITE
+NoMatch: TK_WRITE
+Going Into conditionalStmt Looking For TK_WRITE
+NoMatch: TK_WRITE
+Going Into ioStmt Looking For TK_WRITE
+added first 20 34 0
+Going Into stmt Looking For TK_SQL
+Going Into assignmentStmt Looking For TK_SQL
+Going Into singleOrRecId Looking For TK_SQL
+NoMatch: TK_SQL
+NoMatch: TK_SQL
+Going Into iterativeStmt Looking For TK_SQL
+NoMatch: TK_SQL
+Going Into conditionalStmt Looking For TK_SQL
+NoMatch: TK_SQL
+Going Into ioStmt Looking For TK_SQL
+NoMatch: TK_SQL
+Going Into funCallStmt Looking For TK_SQL
+Going Into outputParameters Looking For TK_SQL
+added first 20 17 0
+Going Into stmt Looking For TK_CALL
+Going Into assignmentStmt Looking For TK_CALL
+Going Into singleOrRecId Looking For TK_CALL
+NoMatch: TK_CALL
+NoMatch: TK_CALL
+Going Into iterativeStmt Looking For TK_CALL
+NoMatch: TK_CALL
+Going Into conditionalStmt Looking For TK_CALL
+NoMatch: TK_CALL
+Going Into ioStmt Looking For TK_CALL
+NoMatch: TK_CALL
+Going Into funCallStmt Looking For TK_CALL
+Going Into outputParameters Looking For TK_CALL
+EPS Found going into followset of outputParameters
+->_CALL
+NoMatch: TK_CALL
+NoMatch: TK_CALL
+Going Into definetypestmt Looking For TK_CALL
+NoMatch: TK_CALL
+NoMatch: TK_CALL
+EPS Found going into followset of otherStmts
+->_RETURN->TK_ENDWHILE->TK_ENDIF->TK_ELSE
+NoMatch: TK_CALL
+added first 20 40 -1
+Going Into stmt Looking For TK_RETURN
+Going Into assignmentStmt Looking For TK_RETURN
+Going Into singleOrRecId Looking For TK_RETURN
+NoMatch: TK_RETURN
+NoMatch: TK_RETURN
+Going Into iterativeStmt Looking For TK_RETURN
+NoMatch: TK_RETURN
+Going Into conditionalStmt Looking For TK_RETURN
+NoMatch: TK_RETURN
+Going Into ioStmt Looking For TK_RETURN
+NoMatch: TK_RETURN
+Going Into funCallStmt Looking For TK_RETURN
+Going Into outputParameters Looking For TK_RETURN
+EPS Found going into followset of outputParameters
+->_CALL
+NoMatch: TK_RETURN
+NoMatch: TK_RETURN
+Going Into definetypestmt Looking For TK_RETURN
+NoMatch: TK_RETURN
+NoMatch: TK_RETURN
+EPS Found going into followset of otherStmts
+TK_RETURN->Found TK_RETURN in followset of otherStmts
+epsilon added first 20 35 0
+Going Into stmt Looking For TK_ENDWHILE
+Going Into assignmentStmt Looking For TK_ENDWHILE
+Going Into singleOrRecId Looking For TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+Going Into iterativeStmt Looking For TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+Going Into conditionalStmt Looking For TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+Going Into ioStmt Looking For TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+Going Into funCallStmt Looking For TK_ENDWHILE
+Going Into outputParameters Looking For TK_ENDWHILE
+EPS Found going into followset of outputParameters
+->_CALL
+NoMatch: TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+Going Into definetypestmt Looking For TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+NoMatch: TK_ENDWHILE
+EPS Found going into followset of otherStmts
+TK_RETURN->TK_ENDWHILE->Found TK_ENDWHILE in followset of otherStmts
+epsilon added first 20 27 0
+Going Into stmt Looking For TK_ENDIF
+Going Into assignmentStmt Looking For TK_ENDIF
+Going Into singleOrRecId Looking For TK_ENDIF
+NoMatch: TK_ENDIF
+NoMatch: TK_ENDIF
+Going Into iterativeStmt Looking For TK_ENDIF
+NoMatch: TK_ENDIF
+Going Into conditionalStmt Looking For TK_ENDIF
+NoMatch: TK_ENDIF
+Going Into ioStmt Looking For TK_ENDIF
+NoMatch: TK_ENDIF
+Going Into funCallStmt Looking For TK_ENDIF
+Going Into outputParameters Looking For TK_ENDIF
+EPS Found going into followset of outputParameters
+->_CALL
+NoMatch: TK_ENDIF
+NoMatch: TK_ENDIF
+Going Into definetypestmt Looking For TK_ENDIF
+NoMatch: TK_ENDIF
+NoMatch: TK_ENDIF
+EPS Found going into followset of otherStmts
+TK_RETURN->TK_ENDWHILE->TK_ENDIF->Found TK_ENDIF in followset of otherStmts
+epsilon added first 20 32 0
+Going Into assignmentStmt Looking For TK_ID
+Going Into singleOrRecId Looking For TK_ID
+added first 21 3 0
+Going Into assignmentStmt Looking For TK_WHILE
+Going Into singleOrRecId Looking For TK_WHILE
+NoMatch: TK_WHILE
+NoMatch: TK_WHILE
+Going Into iterativeStmt Looking For TK_WHILE
+added first 21 11 0
+Going Into assignmentStmt Looking For TK_IF
+Going Into singleOrRecId Looking For TK_IF
+NoMatch: TK_IF
+NoMatch: TK_IF
+Going Into iterativeStmt Looking For TK_IF
+NoMatch: TK_IF
+Going Into conditionalStmt Looking For TK_IF
+added first 21 30 0
+Going Into assignmentStmt Looking For TK_READ
+Going Into singleOrRecId Looking For TK_READ
+NoMatch: TK_READ
+NoMatch: TK_READ
+Going Into iterativeStmt Looking For TK_READ
+NoMatch: TK_READ
+Going Into conditionalStmt Looking For TK_READ
+NoMatch: TK_READ
+Going Into ioStmt Looking For TK_READ
+added first 21 33 1
+Going Into assignmentStmt Looking For TK_WRITE
+Going Into singleOrRecId Looking For TK_WRITE
+NoMatch: TK_WRITE
+NoMatch: TK_WRITE
+Going Into iterativeStmt Looking For TK_WRITE
+NoMatch: TK_WRITE
+Going Into conditionalStmt Looking For TK_WRITE
+NoMatch: TK_WRITE
+Going Into ioStmt Looking For TK_WRITE
+added first 21 34 0
+Going Into assignmentStmt Looking For TK_SQL
+Going Into singleOrRecId Looking For TK_SQL
+NoMatch: TK_SQL
+NoMatch: TK_SQL
+Going Into iterativeStmt Looking For TK_SQL
+NoMatch: TK_SQL
+Going Into conditionalStmt Looking For TK_SQL
+NoMatch: TK_SQL
+Going Into ioStmt Looking For TK_SQL
+NoMatch: TK_SQL
+Going Into funCallStmt Looking For TK_SQL
+Going Into outputParameters Looking For TK_SQL
+added first 21 17 0
+Going Into assignmentStmt Looking For TK_CALL
+Going Into singleOrRecId Looking For TK_CALL
+NoMatch: TK_CALL
+NoMatch: TK_CALL
+Going Into iterativeStmt Looking For TK_CALL
+NoMatch: TK_CALL
+Going Into conditionalStmt Looking For TK_CALL
+NoMatch: TK_CALL
+Going Into ioStmt Looking For TK_CALL
+NoMatch: TK_CALL
+Going Into funCallStmt Looking For TK_CALL
+Going Into outputParameters Looking For TK_CALL
+EPS Found going into followset of outputParameters
+->_CALL
+NoMatch: TK_CALL
+NoMatch: TK_CALL
+Going Into definetypestmt Looking For TK_CALL
+NoMatch: TK_CALL
+NoMatch: TK_CALL
+added first 21 40 -1
+added first 24 26 0
+EPS Found going into followset of singleOrNot
+TK_ASSIGNOP->Found TK_ASSIGNOP in followset of singleOrNot
+epsilon added first 24 0 0
+Going Into outputParameters Looking For TK_SQL
+added first 25 17 0
+added first 26 17 0
+added first 30 43 0
+added first 31 33 1
+Going Into term Looking For TK_ID
+Going Into factor Looking For TK_ID
+Going Into varOrRecord Looking For TK_ID
+Going Into var Looking For TK_ID
+added first 32 3 0
+Going Into term Looking For TK_NUM
+Going Into factor Looking For TK_NUM
+Going Into varOrRecord Looking For TK_NUM
+Going Into var Looking For TK_NUM
+added first 32 4 1
+Going Into term Looking For TK_RNUM
+Going Into factor Looking For TK_RNUM
+Going Into varOrRecord Looking For TK_RNUM
+Going Into var Looking For TK_RNUM
+added first 32 5 2
+Going Into term Looking For TK_OP
+Going Into factor Looking For TK_OP
+Going Into varOrRecord Looking For TK_OP
+Going Into var Looking For TK_OP
+NoMatch: TK_OP
+NoMatch: TK_OP
+added first 32 28 1
+Going Into PlusOrMinus Looking For TK_PLUS
+added first 33 36 0
+Going Into PlusOrMinus Looking For TK_MUL
+NoMatch: TK_MUL
+EPS Found going into followset of moreArithmeticExpression
+->_CL->TK_SEM
+NoMatch: TK_MUL
+added first 33 38 -1
+Going Into PlusOrMinus Looking For TK_MINUS
+added first 33 37 1
+Going Into PlusOrMinus Looking For TK_DIV
+NoMatch: TK_DIV
+EPS Found going into followset of moreArithmeticExpression
+->_CL->TK_SEM
+NoMatch: TK_DIV
+added first 33 39 -1
+Going Into PlusOrMinus Looking For TK_CL
+NoMatch: TK_CL
+EPS Found going into followset of moreArithmeticExpression
+TK_CL->Found TK_CL in followset of moreArithmeticExpression
+epsilon added first 33 29 0
+added first 34 36 0
+Going Into factor Looking For TK_ID
+Going Into varOrRecord Looking For TK_ID
+Going Into var Looking For TK_ID
+added first 35 3 0
+Going Into factor Looking For TK_NUM
+Going Into varOrRecord Looking For TK_NUM
+Going Into var Looking For TK_NUM
+added first 35 4 1
+Going Into factor Looking For TK_RNUM
+Going Into varOrRecord Looking For TK_RNUM
+Going Into var Looking For TK_RNUM
+added first 35 5 2
+Going Into factor Looking For TK_RECORDID
+Going Into varOrRecord Looking For TK_RECORDID
+Going Into var Looking For TK_RECORDID
+NoMatch: TK_RECORDID
+added first 35 7 1
+Going Into MultOrDiv Looking For TK_MUL
+added first 36 38 0
+Going Into MultOrDiv Looking For TK_DIV
+added first 36 39 1
+Going Into MultOrDiv Looking For TK_PLUS
+NoMatch: TK_PLUS
+EPS Found going into followset of moreFactors
+TK_PLUS->Found TK_PLUS in followset of moreFactors
+epsilon added first 36 36 0
+Going Into MultOrDiv Looking For TK_MINUS
+NoMatch: TK_MINUS
+EPS Found going into followset of moreFactors
+TK_PLUS->TK_MINUS->Found TK_MINUS in followset of moreFactors
+epsilon added first 36 37 0
+Going Into MultOrDiv Looking For TK_CL
+NoMatch: TK_CL
+EPS Found going into followset of moreFactors
+TK_PLUS->TK_MINUS->TK_CL->Found TK_CL in followset of moreFactors
+epsilon added first 36 29 0
+added first 37 38 0
+Going Into varOrRecord Looking For TK_ID
+Going Into var Looking For TK_ID
+added first 38 3 0
+Going Into varOrRecord Looking For TK_NUM
+Going Into var Looking For TK_NUM
+added first 38 4 1
+Going Into varOrRecord Looking For TK_RNUM
+Going Into var Looking For TK_RNUM
+added first 38 5 2
+Going Into varOrRecord Looking For TK_RECORDID
+Going Into var Looking For TK_RECORDID
+NoMatch: TK_RECORDID
+added first 38 7 1
+Going Into var Looking For TK_ID
+added first 39 3 0
+Going Into var Looking For TK_NUM
+added first 39 4 1
+Going Into var Looking For TK_RNUM
+added first 39 5 2
+added first 40 26 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->Found TK_MUL in followset of EntireRecordOrOneField
+epsilon added first 40 38 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->Found TK_DIV in followset of EntireRecordOrOneField
+epsilon added first 40 39 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->TK_PLUS->Found TK_PLUS in followset of EntireRecordOrOneField
+epsilon added first 40 36 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->TK_PLUS->TK_MINUS->Found TK_MINUS in followset of EntireRecordOrOneField
+epsilon added first 40 37 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->TK_PLUS->TK_MINUS->TK_CL->Found TK_CL in followset of EntireRecordOrOneField
+epsilon added first 40 29 0
+added first 40 26 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->Found TK_MUL in followset of EntireRecordOrOneField
+epsilon added first 40 38 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->Found TK_DIV in followset of EntireRecordOrOneField
+epsilon added first 40 39 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->TK_PLUS->Found TK_PLUS in followset of EntireRecordOrOneField
+epsilon added first 40 36 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->TK_PLUS->TK_MINUS->Found TK_MINUS in followset of EntireRecordOrOneField
+epsilon added first 40 37 0
+EPS Found going into followset of EntireRecordOrOneField
+TK_MUL->TK_DIV->TK_PLUS->TK_MINUS->TK_CL->Found TK_CL in followset of EntireRecordOrOneField
+epsilon added first 40 29 0
+added first 41 28 0
+Going Into var Looking For TK_ID
+added first 41 3 0
+Going Into var Looking For TK_NUM
+added first 41 4 1
+Going Into var Looking For TK_RNUM
+added first 41 5 2
+added first 42 3 0
+added first 42 4 1
+added first 43 44 0
+added first 44 47 0
+added first 44 48 1
+added first 44 49 2
+added first 44 50 3
+added first 44 51 4
+added first 46 17 0
+added first 48 23 0
+added first 50 41 0
+First Set Table Initialized
+Follwo Set Table Initialized
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (0,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (2,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (5,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (6,0) (6,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (6,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (7,0) (7,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (7,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (8,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (9,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (10,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (11,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (11,0) (11,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (11,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (11,0) (-1,-1) (-1,-1) (11,0) (11,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (11,-1) (11,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (12,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (12,0) (12,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (12,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (12,0) (-1,-1) (-1,-1) (12,0) (12,0) (12,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (12,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (13,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (16,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (16,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (17,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (17,0) (17,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (17,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (17,0) (-1,-1) (-1,-1) (17,0) (17,0) (17,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (17,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (19,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (20,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (20,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (20,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (20,0) (-1,-1) (-1,-1) (20,0) (-1,-1) (20,0) (20,1) (20,0) (20,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (20,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (21,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (21,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (21,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (21,0) (-1,-1) (-1,-1) (21,1) (21,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (21,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(24,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (24,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (25,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (26,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (30,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (31,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (32,0) (32,1) (32,2) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (32,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (33,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (33,0) (33,1) (33,-1) (33,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (34,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (35,0) (35,1) (35,2) (-1,-1) (35,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (36,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (36,0) (36,0) (36,0) (36,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (37,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (38,0) (38,1) (38,2) (-1,-1) (38,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (39,0) (39,1) (39,2) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (40,0) (-1,-1) (-1,-1) (40,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (40,0) (40,0) (40,0) (40,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (41,0) (41,1) (41,2) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (41,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (42,0) (42,1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (43,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (44,0) (44,1) (44,2) (44,3) (44,4) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (46,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (48,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (50,0) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+(-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) (-1,-1) 
+INIT DONE
+HELLO
+HELLOo
+12345hue hue hue 1meow meowenter
+push complete
+hue hue hue 2
+hue hue hue 3.1
+hello : program
+hue hue hue 3.2
+hue hue hue 3.3
+enter
+push complete
+Retured from push
+hue hue hue 4b
+hue hue hue 4
+
+Hue hue hue 5 5 TK_MAIN
+
+bhow bhow
+bhow bhow 2
+ programhsgfgTK_MAINjbhjbh
+hello : 2bhow bhow 2.2 program
+bhow bhow 2.3
+0 13
+hell : -1 -1
+bhow bhow 3
+Error reported in line 5
+bhow bhow 4
+bhow bhow 5
+Segmentation fault (core dumped)

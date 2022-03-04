@@ -70,7 +70,7 @@ char terminals[60][20] = {"TK_ASSIGNOP",
 "$"
 };
 
-char nonterminals[40][25] = {
+char nonterminals[51][25] = {
 "program",
 "mainFunction",
 "otherFunctions",
@@ -94,15 +94,24 @@ char nonterminals[40][25] = {
 "otherStmts",
 "stmt",
 "assignmentStmt",
-"SingleOrRecId",
+"singleOrRecId",
+"singleOrNot",
 "funCallStmt",
 "outputParameters",
 "inputParameters",
 "iterativeStmt",
 "conditionalStmt",
+"elseOrNot",
 "ioStmt",
 "arithmeticExpression",
-"operator",
+"moreArithmeticExpression",
+"PlusOrMinus",
+"term",
+"moreFactors",
+"MultOrDiv",
+"factor",
+"varOrRecord",
+"EntireRecordOrOneField",
 "booleanExpression",
 "var",
 "logicalOp",
@@ -110,5 +119,7 @@ char nonterminals[40][25] = {
 "returnStmt",
 "optionalReturn",
 "idList",
-"more_ids"
+"more_ids",
+"definetypestmt",
+"A"
 };

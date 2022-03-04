@@ -263,10 +263,12 @@ int main()
         return -1;
     }
     grammar = take_input_from_grammar_file(input);
+    printf("\nGRammar taken in successfully\n");
     FILE *fnf = fopen("FirstAndFollow.txt", "r");
     firstAndfollow* fnfset = populateFirstandFollow(fnf);
     printf("FNF done.\n");
     complete_init(fnfset, grammar);
+    printf("INIT DONE\n");
     treenode *tree = parser("onliTokens.txt", parsetable, grammar);
     fclose(input);
     fclose(fnf);
