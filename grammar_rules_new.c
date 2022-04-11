@@ -43,13 +43,15 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                 ch = fgetc(ptr);
             }
             string[i++] = '\0';
+            //printf("%d ",i);
             // printf("%c",string[0]);
-            for(int j =0;string[j]<i;j++)
+            for(int j =0;j<i;j++)
             {
                 
                 grammar[rule_no].nonterminal[j] = string[j];
-                // printf("%c",grammar[rule_no].nonterminal[j]);
+                //printf("%c",grammar[rule_no].nonterminal[j]);
             }
+            //printf("%s",grammar[rule_no].nonterminal);
             ch = fgetc(ptr);
         }
         int order = 0;
@@ -62,7 +64,7 @@ lhs* take_input_from_grammar_file(FILE* ptr)
             rhs* temp;
             if(ch=='<')
             {
-                char string[MAX_SIZE_OF_SYMBOL];
+                char str[MAX_SIZE_OF_SYMBOL];
                 // char* symbol = (char*)malloc(sizeof(char)*MAX_SIZE_OF_SYMBOL);
                 for(int i =0;i<MAX_SIZE_OF_SYMBOL;i++)
                 {
@@ -70,15 +72,15 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                     // printf("%c",ch);
                     if(ch=='>')
                     {
-                        string[i] = '\0';
+                        str[i] = '\0';
                         if(order==0)
                         {  
                             grammar[rule_no].rule[or_no] = (rhs*)malloc(sizeof(rhs));
                             temp = grammar[rule_no].rule[or_no];
                         }
                         int j=0;
-                        for(j =0;string[j]!='\0';j++)
-                        temp->token[j] = string[j]/*,printf("%c",string[j])*/;
+                        for(j =0;str[j]!='\0';j++)
+                        temp->token[j] = str[j]/*,printf("%c",string[j])*/;
                         temp->token[j]='\0';
                         temp->isNonTerm = 0; 
                         temp->or_no = or_no;                    
@@ -90,12 +92,12 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                         break;
                     }
                     else
-                    string[i] = ch;
+                    str[i] = ch;
                 }
             }
             else if(ch=='T')//assuming all tokens will start with a TK_
             {
-                char string[MAX_SIZE_OF_SYMBOL];
+                char str[MAX_SIZE_OF_SYMBOL];
                 // char* symbol = (char*)malloc(sizeof(char)*MAX_SIZE_OF_SYMBOL);
                 for(int i=0;i<MAX_SIZE_OF_SYMBOL;i++)
                 {
@@ -104,7 +106,7 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                         // if(ch=='\n')
                         // printf("HELLO");
                         // printf("%c",ch);
-                        string[i] = '\0';
+                        str[i] = '\0';
                          
                         if(order==0)
                         { 
@@ -112,8 +114,8 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                             temp = grammar[rule_no].rule[or_no];
                         }
                         int j=0;
-                        for(j =0;string[j]!='\0';j++)
-                        temp->token[j] = string[j]/*,printf("%c",string[j])*/;
+                        for(j =0;str[j]!='\0';j++)
+                        temp->token[j] = str[j]/*,printf("%c",string[j])*/;
                         temp->token[j]='\0';
                         temp->isNonTerm = 1;  
                         temp->or_no = or_no;                      
@@ -132,7 +134,7 @@ lhs* take_input_from_grammar_file(FILE* ptr)
                     }
                     else
                     {
-                        string[i] = ch;
+                        str[i] = ch;
                         // ch = fgetc(ptr);
                     }
                     ch = fgetc(ptr);
@@ -141,7 +143,7 @@ lhs* take_input_from_grammar_file(FILE* ptr)
             }
             else if(ch=='=')
             {
-                while(ch!='<'&&ch!='T'&&ch!='e')// e is epsilon
+                while(ch!='<'&&ch!='T'&&ch!='^')// ^ is epsilon
                 {
                     // printf("%c",ch);
                     ch = fgetc(ptr);
@@ -185,7 +187,7 @@ void printgrammar(lhs* gram)
         int j = 0;
         while(gram[i].rule[j]!=NULL)
         {
-            printf("or_no : %d\n", j);
+            printf("or_no : %d eps:%d\n", j,gram[i].isEpsilon);
             rhs* temp = gram[i].rule[j];
             while(temp->next!=NULL)
             {
@@ -208,8 +210,6 @@ void printgrammar(lhs* gram)
 //     }
 //     grammar = take_input_from_grammar_file(input);
 //     printf("Input taken in successfully");
-//     // if(grammar[0].rule[0]->nex==NULL)
-//     // printf("HUE HUE HUE");
-//     // printf("%s, %d", grammar[0].rule[1]->token,grammar[0].rule[1]->or_no);
+//     printgrammar(grammar);
 //     printf("Final: %d\n", grammar[12].isEpsilon);
 // }
