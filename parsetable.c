@@ -106,9 +106,9 @@ void init_fromfirstset(firstAndfollow *ruleset, lhs *Grammar)
         printf("Non Terminal Reference: %d", nonT_Ref);
 
         if(firstTraversal->token[strlen(ruleset[i].token) - 1] == '\n'){
-        printf("New line in findor lexeme\n");
-        firstTraversal->token[strlen(ruleset[i].token) - 1] = '\0';
-    }
+            printf("New line in find or lexeme\n");
+            firstTraversal->token[strlen(ruleset[i].token) - 1] = '\0';
+        }
 
         while (firstTraversal != NULL)
         {
@@ -126,40 +126,40 @@ void init_fromfirstset(firstAndfollow *ruleset, lhs *Grammar)
             firstTraversal = firstTraversal->next;
         }
 
-        if(ruleset[i].epsPres == 1){
-            follow* traversal = ruleset[i].Follow;
-            nonT_Ref = -1;
-            ter_Ref = -1;
-            orRef = -1;
+        // if(ruleset[i].epsPres == 1){
+        //     follow* traversal = ruleset[i].Follow;
+        //     nonT_Ref = -1;
+        //     ter_Ref = -1;
+        //     orRef = -1;
             
-            nonT_Ref = getNonTerminalNumber(ruleset[i].token);
+        //     nonT_Ref = getNonTerminalNumber(ruleset[i].token);
             
-            while (traversal != NULL)
-            {
-                printf("Inside Follow Set Traversal: %s\n", traversal->token);
-            ter_Ref = getTerminalNumber(traversal->token);
-            printf("Number: %d\n", ter_Ref);        
-            if (ter_Ref != -1 && nonT_Ref != -1)
-            {
-                orRef = findOrNo(traversal->token, nonT_Ref, Grammar, ruleset);
-                parsetable[nonT_Ref][ter_Ref].rule_number = nonT_Ref;
-                parsetable[nonT_Ref][ter_Ref].or_no = orRef;
-                // printf("epsilon added first %d %d %d\n", nonT_Ref, ter_Ref, orRef);
-                printf("Added Lexeme: %s LineNo: %d OrNumber: %d\n", traversal->token, nonT_Ref, orRef);
-            }
-            traversal = traversal->next;
-        }
+        //     while (traversal != NULL)
+        //     {
+        //         printf("Inside Follow Set Traversal: %s\n", traversal->token);
+        //     ter_Ref = getTerminalNumber(traversal->token);
+        //     printf("Number: %d\n", ter_Ref);        
+        //     if (ter_Ref != -1 && nonT_Ref != -1)
+        //     {
+        //         orRef = findOrNo(traversal->token, nonT_Ref, Grammar, ruleset);
+        //         parsetable[nonT_Ref][ter_Ref].rule_number = nonT_Ref;
+        //         parsetable[nonT_Ref][ter_Ref].or_no = orRef;
+        //         // printf("epsilon added first %d %d %d\n", nonT_Ref, ter_Ref, orRef);
+        //         printf("Added Lexeme: %s LineNo: %d OrNumber: %d\n", traversal->token, nonT_Ref, orRef);
+        //     }
+        //     traversal = traversal->next;
+        // }
 
-        if (ruleset[i].dollarPres == 1 && ruleset[i].epsPres == 1)
-            {
-            nonT_Ref = getNonTerminalNumber(ruleset[i].token);
-            orRef = findOrNo("$", nonT_Ref, Grammar, ruleset);
-            parsetable[nonT_Ref][DOLLAR_NOS].rule_number = nonT_Ref;
-            parsetable[nonT_Ref][DOLLAR_NOS].or_no = orRef;
-        }
+        // if (ruleset[i].dollarPres == 1 && ruleset[i].epsPres == 1)
+        //     {
+        //     nonT_Ref = getNonTerminalNumber(ruleset[i].token);
+        //     orRef = findOrNo("$", nonT_Ref, Grammar, ruleset);
+        //     parsetable[nonT_Ref][DOLLAR_NOS].rule_number = nonT_Ref;
+        //     parsetable[nonT_Ref][DOLLAR_NOS].or_no = orRef;
+        // }
 
 
-        }
+        // }
     }
 }
 

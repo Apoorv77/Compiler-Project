@@ -80,8 +80,6 @@ varOrRecord TK_ID TK_NUM TK_RNUM TK_RECORDID
 varOrRecord TK_MUL TK_DIV TK_PLUS TK_MINUS TK_CL TK_SEM
 EntireRecordOrOneField TK_DOT ^
 EntireRecordOrOneField TK_MUL TK_DIV TK_PLUS TK_MINUS TK_CL TK_SEM
-EntireRecordOrOneField TK_DOT ^
-EntireRecordOrOneField TK_MUL TK_DIV TK_PLUS TK_MINUS TK_CL TK_SEM
 booleanExpression TK_OP TK_ID TK_NUM TK_RNUM TK_NOT
 booleanExpression TK_CL
 var TK_ID TK_NUM TK_RNUM

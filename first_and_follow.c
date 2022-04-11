@@ -92,7 +92,6 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    while(i<idx2){
        char token[60];int j=0;
        while(i<idx2 && line2[i] != ' ' && line2[i] !='\n'){
-
             if(line[i]=='$'){
             ff[NTno].dollarPres=1;
             break;
@@ -131,13 +130,13 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
 //         printf("%s eps:%d dollar:%d\n",fnf[i].token,fnf[i].epsPres,fnf[i].dollarPres);
 //         first* temp = fnf[i].First;
 //         while(temp != NULL){
-//             printf("%s ",temp->token);
+//             printf(" %s",temp->token);
 //             temp = temp->next;
 //         }
 //         printf("\n");
 //         follow* t = fnf[i].Follow;
 //         while(t != NULL){
-//             printf("%s ",t->token);
+//             printf(" %s",t->token);
 //             t = t->next;
 //         }
 //         printf("\n");
