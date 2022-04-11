@@ -37,7 +37,7 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    }
    ff[NTno].token[i]='\0';
    NT[i]='\0';
-  // printf("%s\n",ff[NTno].token);
+   //printf("%s\n",ff[NTno].token);
    i++; // Going over the space or newline
    ff[NTno].First = (first*) malloc(sizeof(first));
    ff[NTno].dollarPres=0;
@@ -46,12 +46,20 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    while(i<idx){
        char token[60];int j=0;
        while(i<idx && line[i] != ' ' && line[i] !='\n'){
+        //    printf("%c\n",line[i]);
+        
+        if(line[i]=='^'){
+            ff[NTno].epsPres=1;
+            break;
+        }
+
            first_ptr->token[j]=line[i];
            token[j]=line[i];
-           if(line[i]=='^') ff[NTno].epsPres=1;
-          if(line[i]=='$') ff[NTno].dollarPres=1;
+           
+          //if(line[i]=='$') ff[NTno].dollarPres=1;
            j++;i++;
        }
+       
        first_ptr->token[j]='\0';
        token[j]='\0';
       // printf("%s\n",first_ptr->token);
@@ -74,6 +82,7 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    }
    line2[idx2]='\0';
    i=0;
+   //going over non-terminal
    while(line2[i] != ' ' && line2[i] != '\n'){
        i++;
    }
@@ -83,14 +92,18 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    while(i<idx2){
        char token[60];int j=0;
        while(i<idx2 && line2[i] != ' ' && line2[i] !='\n'){
+
+            if(line[i]=='$'){
+            ff[NTno].dollarPres=1;
+            break;
+           }
            follow_ptr->token[j]=line2[i];
            token[j]=line2[i];
-           if(line2[i]=='$') ff[NTno].dollarPres=1;
            j++;i++;
        }
        follow_ptr->token[j]='\0';
        token[j]='\0';
-      // printf("%s\n",follow_ptr->token);
+      //printf("%s\n",follow_ptr->token);
        i++; // Going over the space or newline
        if(i<idx2){
            follow_ptr->next = (follow*) malloc(sizeof(follow));
@@ -103,9 +116,10 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    }
     return ff;
 }
+
 // int main() 
 // {
-//     FILE* input = fopen("FirstandFollow.txt", "r");
+//     FILE* input = fopen("FirstAndFollow.txt", "r");
 //     if(input == NULL)
 //     {
 //         // fprintf(stderr, "Error Opening Grammar File\n");
@@ -113,33 +127,21 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
 //         return 0;
 //     }
 //     firstAndfollow* fnf =populateFirstandFollow(input);
-//     // for(int i =0;i<60;i++)
-//     // {
-//         printf("%s\n",fnf[1].token);
-//         // printf("printing the follow sets...\n");
-//         // first* temp = fnf[i].First; 
-//         // while(temp!=NULL)
-//         // {
-//         //     printf("%s ->",temp->token);
-//         //     temp = temp->next;
-//         // }
-//         // printf("\n");
-//         // printf("printing the follow sets...\n");
-//         // follow* temp1 = fnf[i].Follow; 
-//         // while(temp1!=NULL)
-//         // {
-//         //     printf("%s ->",temp1->token);
-//         //     temp1 = temp1->next;
-
-//         // }
-
-//         follow* firsttrav = fnf[1].Follow;
-
-//         while(firsttrav != NULL){
-//             printf("%s-> ", firsttrav->token);
-//             firsttrav = firsttrav->next;
+//     for(int i=0;i<52;i++){
+//         printf("%s eps:%d dollar:%d\n",fnf[i].token,fnf[i].epsPres,fnf[i].dollarPres);
+//         first* temp = fnf[i].First;
+//         while(temp != NULL){
+//             printf("%s ",temp->token);
+//             temp = temp->next;
 //         }
 //         printf("\n");
-//     // }
+//         follow* t = fnf[i].Follow;
+//         while(t != NULL){
+//             printf("%s ",t->token);
+//             t = t->next;
+//         }
+//         printf("\n");
+//     }
+//     printf("Done\n");
 //     return 0;
 // }
