@@ -1,3 +1,11 @@
+/************************
+        |GROUP 19|
+    Apoorv Badar      2019A7PS0060P
+    Parth Bisen       2019A7PS0113P
+    Vibha Rao         2019A7PS0132P
+    Amish Bhat        2019A7PS0140P
+    Aniruddha Trivedi 2019A7PS0073P
+*******************/
 #include <stdio.h>
 #include <stdlib.h>
 #include "grammar_def.h"
@@ -7,16 +15,17 @@
 //this will take input as the FILE pointer
 lhs* take_input_from_grammar_file(FILE* ptr)
 {
-    printf("entered into the input function\n");
+    printf("Grammar Initialization\n");
     lhs* grammar = ( lhs*)malloc(sizeof(lhs)*sizeOfGrammer);
     int rule_no = 0;
     char ch = 'a';
     while(ch!=EOF)
     {
         ch = fgetc(ptr);
-        for(int i =0;i<10;i++)
+        for(int i =0;i<10;i++){
         grammar[rule_no].rule[i] = NULL;
         grammar[rule_no].isEpsilon = 0;
+        }
         // printf("%c",ch);
         if(ch==EOF)
         break;
@@ -35,7 +44,7 @@ lhs* take_input_from_grammar_file(FILE* ptr)
             }
             string[i++] = '\0';
             // printf("%c",string[0]);
-            for(int j =0;string[j]!='\0';j++)
+            for(int j =0;string[j]<i;j++)
             {
                 
                 grammar[rule_no].nonterminal[j] = string[j];
@@ -163,7 +172,7 @@ lhs* take_input_from_grammar_file(FILE* ptr)
             // i have to handle the condition when ">|" comes together like that. I can handle it in the first case itself imo. 
         }
         rule_no++;
-        printf("%d",rule_no);
+        // printf("%d",rule_no);
     }
     return grammar;
 }

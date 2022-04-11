@@ -24,7 +24,7 @@ stack* init_stack(){
     return st;
 }
 void push(stack* st,line_no_and_token* str){
-    printf("enter\n");
+    // printf("enter\n");
     if(st->i == st->capacity){
         st->capacity *= 2;
         line_no_and_token** temp = (line_no_and_token**)realloc(st,sizeof(line_no_and_token*) * st->capacity);
@@ -33,7 +33,7 @@ void push(stack* st,line_no_and_token* str){
     }
     st->arr[st->i] = str;
     st->i = st->i + 1;
-    printf("push complete\n");
+    // printf("push complete\n");
 }
 line_no_and_token* top(stack* st){
     if(st->i==0){

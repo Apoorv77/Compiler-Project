@@ -1,7 +1,7 @@
 /************************
         |GROUP 19|
     Apoorv Badar      2019A7PS0060P
-    Parth Bisen       2019A7PS0073P
+    Parth Bisen       2019A7PS0113P
     Vibha Rao         2019A7PS0132P
     Amish Bhat        2019A7PS0140P
     Aniruddha Trivedi 2019A7PS0073P
@@ -44,9 +44,23 @@ int main(int argc,char* argv[]){
         //Lexical Analysis
         lexical_analysis(fp);
         break;
-         case 3:
+         case 3:{
         //Parsing
-        printf("Some debugging left in parser\n");
+            FILE *input = fopen("grammar_test_file.txt", "r");
+            if (input == NULL)
+            {
+                fprintf(stderr, "Error Opening Grammar File\n");
+                return -1;
+            }
+            grammar = take_input_from_grammar_file(input);
+            printf("\nGRammar taken in successfully\n");
+            FILE *fnf = fopen("FirstAndFollow.txt", "r");
+            firstAndfollow* fnfset = populateFirstandFollow(fnf);
+            printf("FNF done.\n");
+            complete_init(fnfset, grammar);
+            printf("INIT DONE\n");
+            printf("Parse Table created, parser function ( implemented in parser.c ) returns segmentation fault\n");
+        }
         break;
          case 4:{
          //Time
