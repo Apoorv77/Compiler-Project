@@ -26,3 +26,4 @@ typedef struct FirstAndFollow{
 }firstAndfollow;
 
 firstAndfollow * populateFirstandFollow(FILE* ptr);
+void print_fnf(firstAndfollow* fnf);

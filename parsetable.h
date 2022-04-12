@@ -18,18 +18,17 @@ typedef struct parseunit{
     int or_no;
 }parseUnit;
 
-#define NON_TERMINAL_COUNT 60
-#define TERMINAL_COUNT 60
-#define DOLLAR_NOS 60
+#define NON_TERMINAL_COUNT 51
+#define TERMINAL_COUNT 62
+#define DOLLAR_NOS 59
 
 parseUnit parsetable[NON_TERMINAL_COUNT][TERMINAL_COUNT];
 
 int getNonTerminalNumber(char* lexeme);
 int getTerminalNumber(char* lexeme);
 void init_parsetable();
-int findOrNo(char* lexeme, int lineNo, lhs* Grammar, firstAndfollow* fnf);
-void init_fromfirstset(firstAndfollow* ruleset, lhs* Grammar);
-void init_followSet(firstAndfollow* ruleset, lhs* Grammar);
+int findOrNo(firstAndfollow* ruleset,lhs* Grammar,int nt_no,char* lexeme);
+void generate_parsetable(firstAndfollow *ruleset, lhs *Grammar);
 void complete_init(firstAndfollow* ruleset, lhs* Grammar);
 parseUnit* returnElement(int row, int col);
 

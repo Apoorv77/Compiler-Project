@@ -42,7 +42,7 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    ff[NTno].First = (first*) malloc(sizeof(first));
    ff[NTno].dollarPres=0;
    ff[NTno].epsPres=0;
-   first* first_ptr = ff[NTno].First;
+   first* first_ptr = ff[NTno].First , *prev = NULL;
    while(i<idx){
        char token[60];int j=0;
        while(i<idx && line[i] != ' ' && line[i] !='\n'){
@@ -62,9 +62,14 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
        
        first_ptr->token[j]='\0';
        token[j]='\0';
+       if(ff[NTno].epsPres == 1){
+           if(prev == NULL)ff[NTno].First= NULL;
+           else prev->next = NULL;
+       }
       // printf("%s\n",first_ptr->token);
        i++; // Going over the space or newline
        if(i<idx){
+           prev = first_ptr;
            first_ptr->next = (first*) malloc(sizeof(first));
            first_ptr=first_ptr->next;
            first_ptr->next = NULL;
@@ -88,11 +93,11 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    }
    i++; // Going over the space or newline
   ff[NTno].Follow = (follow*) malloc(sizeof(follow));
-   follow* follow_ptr = ff[NTno].Follow;
+   follow* follow_ptr = ff[NTno].Follow ,*pre = NULL;
    while(i<idx2){
        char token[60];int j=0;
        while(i<idx2 && line2[i] != ' ' && line2[i] !='\n'){
-            if(line[i]=='$'){
+            if(line2[i] == '$'){
             ff[NTno].dollarPres=1;
             break;
            }
@@ -100,11 +105,17 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
            token[j]=line2[i];
            j++;i++;
        }
+       
        follow_ptr->token[j]='\0';
        token[j]='\0';
+       if(ff[NTno].dollarPres == 1){
+          if(pre == NULL)ff[NTno].Follow= NULL;
+           else pre->next = NULL;
+       }
       //printf("%s\n",follow_ptr->token);
        i++; // Going over the space or newline
        if(i<idx2){
+           pre = follow_ptr;
            follow_ptr->next = (follow*) malloc(sizeof(follow));
            follow_ptr=follow_ptr->next;
            follow_ptr->next = NULL;
@@ -114,6 +125,24 @@ firstAndfollow * populateFirstandFollow(FILE* ptr)
    NTno++;
    }
     return ff;
+}
+void print_fnf(firstAndfollow* fnf){
+     for(int i=0;i<52;i++){
+        printf("%s eps:%d dollar:%d\n",fnf[i].token,fnf[i].epsPres,fnf[i].dollarPres);
+        first* temp = fnf[i].First;
+        while(temp != NULL){
+            printf(" %s",temp->token);
+            temp = temp->next;
+        }
+        printf("\n");
+        follow* t = fnf[i].Follow;
+        while(t != NULL){
+            printf(" %s",t->token);
+            t = t->next;
+        }
+        printf("\n");
+    }
+    printf("Done\n");
 }
 
 // int main() 

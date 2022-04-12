@@ -1,15 +1,6 @@
-/********
-        |GROUP 19|
-    Apoorv Badar      2019A7PS0060P
-    Parth Bisen       2019A7PS0073P
-    Vibha Rao         2019A7PS0132P
-    Amish Bhat        2019A7PS0140P
-    Aniruddha Trivedi 2019A7PS0073P
-*******/
 #include "parsetable.h"
 #include <stdio.h>
 #include "ternonter.h"
-
 
 void init_parsetable()
 {
@@ -23,195 +14,25 @@ void init_parsetable()
     }
 }
 
-int findOrNo(char *lexeme, int lineNo, lhs *Grammar, firstAndfollow *fnf)
-{
-
-    // printf("ToCheck Lexeme: %s RuleNumber: %d\n", lexeme, lineNo);
-
-    if(lexeme == "$"){
-        printf("$ found\n");
-    }
-
-
-    for (int i = 0; i < 10; i++)
-    {
-
-        if (Grammar[lineNo].rule[i] == NULL)
-        {
-            // printf("ded\n");
-            break;
-        }
-        else
-        {
-            rhs *ruleTraversal = Grammar[lineNo].rule[i];
-            if (strcmp(ruleTraversal->token, lexeme) == 0)
-            {
-                return i;
-            }
-
-            
-
-            if (ruleTraversal->token[0] != 'T' && ruleTraversal->token[1] != 'K')
-            {
-                // printf("Going Into %s Looking For %s\n", ruleTraversal->token, lexeme);
-                int temp = findOrNo(lexeme, getNonTerminalNumber(ruleTraversal->token), Grammar, fnf);
-                if (temp != -1)
-                {
-                    return temp;
-                }
-            }
-            if (Grammar[lineNo].isEpsilon == 1)
-            {
-                // printf("EPS Found going into followset of %s\n", Grammar[lineNo].nonterminal);
-                follow *travtemp = fnf[getNonTerminalNumber(Grammar[lineNo].nonterminal)].Follow;
-                while (travtemp != NULL)
-                {
-                    // printf("%s->", travtemp->token);
-
-                    if(travtemp->token[strlen(travtemp->token) - 1] == '\n'){
-                        travtemp->token[strlen(travtemp->token) - 1] = '\0';
-                    }
-                    if (strcmp(travtemp->token, lexeme) == 0)
-                    {   
-                        // printf("Found %s in followset of %s\n", lexeme, Grammar[lineNo].nonterminal);
-                        return i;
-                    }
-                    else
-                    {
-                        travtemp = travtemp->next;
-                    }
-                }
-                // printf("\n");
-            }
-        }
-    }
-
-    printf("NoMatch: %s\n", lexeme);
-
-    return -1;
-}
-
-void init_fromfirstset(firstAndfollow *ruleset, lhs *Grammar)
-{
-    
-    for (int i = 0; i < NON_TERMINAL_COUNT; i++)
-    {
-        printf("Non Terminal being searched: %s\n", ruleset[i].token);
-        first *firstTraversal = ruleset[i].First;
-        int nonT_Ref = -1;
-        int ter_Ref = -1;
-        int orRef = -1;
-
-        nonT_Ref = getNonTerminalNumber(ruleset[i].token);
-        printf("Non Terminal Reference: %d", nonT_Ref);
-
-        if(firstTraversal->token[strlen(ruleset[i].token) - 1] == '\n'){
-            printf("New line in find or lexeme\n");
-            firstTraversal->token[strlen(ruleset[i].token) - 1] = '\0';
-        }
-
-        while (firstTraversal != NULL)
-        {
-            printf("Inside First Set: %s\n", firstTraversal->token);
-            ter_Ref = getTerminalNumber(firstTraversal->token);
-            printf("Number: %d\n", ter_Ref);
-
-            if (ter_Ref != -1 && nonT_Ref != -1)
-            {
-                orRef = findOrNo(firstTraversal->token, nonT_Ref, Grammar, ruleset);
-                parsetable[nonT_Ref][ter_Ref].rule_number = nonT_Ref;
-                parsetable[nonT_Ref][ter_Ref].or_no = orRef;
-                printf("Added Lexeme: %s LineNo: %d OrNumber: %d\n", firstTraversal->token, nonT_Ref, orRef);
-            }
-            firstTraversal = firstTraversal->next;
-        }
-
-        // if(ruleset[i].epsPres == 1){
-        //     follow* traversal = ruleset[i].Follow;
-        //     nonT_Ref = -1;
-        //     ter_Ref = -1;
-        //     orRef = -1;
-            
-        //     nonT_Ref = getNonTerminalNumber(ruleset[i].token);
-            
-        //     while (traversal != NULL)
-        //     {
-        //         printf("Inside Follow Set Traversal: %s\n", traversal->token);
-        //     ter_Ref = getTerminalNumber(traversal->token);
-        //     printf("Number: %d\n", ter_Ref);        
-        //     if (ter_Ref != -1 && nonT_Ref != -1)
-        //     {
-        //         orRef = findOrNo(traversal->token, nonT_Ref, Grammar, ruleset);
-        //         parsetable[nonT_Ref][ter_Ref].rule_number = nonT_Ref;
-        //         parsetable[nonT_Ref][ter_Ref].or_no = orRef;
-        //         // printf("epsilon added first %d %d %d\n", nonT_Ref, ter_Ref, orRef);
-        //         printf("Added Lexeme: %s LineNo: %d OrNumber: %d\n", traversal->token, nonT_Ref, orRef);
-        //     }
-        //     traversal = traversal->next;
-        // }
-
-        // if (ruleset[i].dollarPres == 1 && ruleset[i].epsPres == 1)
-        //     {
-        //     nonT_Ref = getNonTerminalNumber(ruleset[i].token);
-        //     orRef = findOrNo("$", nonT_Ref, Grammar, ruleset);
-        //     parsetable[nonT_Ref][DOLLAR_NOS].rule_number = nonT_Ref;
-        //     parsetable[nonT_Ref][DOLLAR_NOS].or_no = orRef;
-        // }
-
-
-        // }
-    }
-}
-
-// void init_followSet(firstAndfollow *ruleset, lhs *Grammar)
-// {
-
-//     for (int i = 0; i < NON_TERMINAL_COUNT; i++)
-//     {
-//         // if(ruleset[i].epsPres == 0){
-//         //     return;
-//         // }
-//         follow *followTraversal = ruleset[i].Follow;
-//         int nonT_Ref = -1;
-//         int ter_Ref = -1;
-//         int orRef = -1;
-
-//         nonT_Ref = getNonTerminalNumber(ruleset[i].token);
-
-//         while (followTraversal != NULL)
-//         {
-//             ter_Ref = getTerminalNumber(followTraversal->token);
-//             if (ter_Ref != -1 && nonT_Ref != -1)
-//             {
-//                 orRef = findOrNo(followTraversal->token, nonT_Ref, Grammar, ruleset);
-//                 parsetable[nonT_Ref][ter_Ref].rule_number = nonT_Ref;
-//                 parsetable[nonT_Ref][ter_Ref].or_no = orRef;
-//                 printf("added successfully\n");
-//             }
-//             followTraversal = followTraversal->next;
-//         }
-
-//         if (ruleset->dollarPres == 1)
-//         {
-//             nonT_Ref = getNonTerminalNumber(ruleset[i].token);
-//             orRef = findOrNo("$", nonT_Ref, Grammar, ruleset);
-//             parsetable[nonT_Ref][DOLLAR_NOS].rule_number = nonT_Ref;
-//             parsetable[nonT_Ref][DOLLAR_NOS].or_no = orRef;
-//         }
+// int compare(char* s1,char* s2){
+//     int i=0,j=0;
+//     while(s1[i] != '\0' && s2[j] != '\0'){
+//         if(s1[i] != s2[j])return 1;
+//         i++;
+//         j++;
 //     }
+//     if(s1[i]>='a' && s1[i]<='z' || s1[i]>='A' && s1[i]<='Z' || s1[i]=='_')return 1;
+//     if(s2[j]>='a' && s2[j] <='z' || s2[j]>='A' && s2[j]<='Z' || s2[j]=='_')return 1;
+//     return 0;
 // }
-
 int getTerminalNumber(char *lexeme)
 {
+    
     for (int i = 0; i < 60; i++)
     {   
-        if (strcmp(lexeme, terminals[i]) == 0)
-        {
-            
-            return i;
-        }
+        if (strcmp(lexeme, terminals[i]) == 0) return i;
     }
-    printf("nonterminal not found : %s\n", lexeme);
+    printf("Didnt find the terminal:%s\n",lexeme);
     return -1;
 }
 
@@ -225,7 +46,7 @@ int getNonTerminalNumber(char *lexeme)
             return i;
         }
     }
-
+    printf("Didnt find the non-terminal:%s\n",lexeme);
     return -1;
 }
 
@@ -234,39 +55,120 @@ parseUnit *returnElement(int row, int col)
     return &parsetable[row][col];
 }
 
+int findOrNo(firstAndfollow* ruleset,lhs* Grammar,int nt_no,char* lexeme){
+    //printf("%d\n",nt_no);
+    for(int i=0;i<10;i++){
+        if(Grammar[nt_no].rule[i] == NULL){
+            //lexeme didnt exist in its first set ,should never happen
+            break;
+        }
+        
+        rhs* rule = Grammar[nt_no].rule[i];
+        //if terminal,check for equality
+       // printf("%d %s\n",i,rule->token);
+        if(rule->isNonTerm == 1 &&  strcmp(rule->token,lexeme) == 0)return i;
+        //if non-terminal , check if it belongs to its first set
+        if(rule->isNonTerm == 0){
+            int rule_no = getNonTerminalNumber(rule->token);
+            if(rule_no == -1){
+                printf("That nt doesn't exist in the array\n");
+            }
+            else{
+                // if(nt_no==23)printf("%s\n",rule->token);
+                first* first_set_ptr = ruleset[rule_no].First;
+                while(first_set_ptr != NULL){
+                    // if(nt_no==23)printf("*%s %s*\n",first_set_ptr->token,lexeme);
+                    
+                    if(strcmp(first_set_ptr->token,lexeme) == 0){
+                        // if(nt_no==23)printf("Ola\n");
+                        return i;
+                    }
+                    first_set_ptr = first_set_ptr->next;
+                    //printf("%s\n",first_set_ptr->token);
+                }
+                if(ruleset[rule_no].epsPres == 1){
+                    follow* follow_ptr = ruleset[rule_no].Follow;
+                    while(follow_ptr != NULL){
+                        if(strcmp(follow_ptr->token,lexeme)==0)return i;
+                        follow_ptr = follow_ptr->next;
+                    }
+                }
+            }
+        }
+    }
+    return -1;
+}
+
+void generate_parsetable(firstAndfollow *ruleset, lhs *Grammar){
+    for(int i=0;i<NON_TERMINAL_COUNT;i++){
+        //TYPE-1
+        first* first_set_ptr = ruleset[i].First;
+        int row = getNonTerminalNumber(ruleset[i].token),col;
+        while(first_set_ptr != NULL){
+            col = getTerminalNumber(first_set_ptr->token);
+            int orNumOfRule = findOrNo(ruleset,Grammar,i,first_set_ptr->token);
+            //printf("%d %d %d\n",row,col,orNumOfRule);
+            if(orNumOfRule == -1){
+                printf("No rule found for %s and %s %d %d\n",ruleset[i].token,first_set_ptr->token,row,col);
+            }
+            else{
+                parsetable[row][col].or_no = orNumOfRule;
+                parsetable[row][col].rule_number = row;
+            }
+            first_set_ptr = first_set_ptr->next;
+        }
+
+        if(ruleset[i].epsPres == 1){
+            //insert the rule for all elements in follow(A)
+            // *** OR NUMBER = 11 will represent taking A-> epsilon
+            //TYPE-2
+            follow* follow_set_ptr = ruleset[i].Follow;
+            while(follow_set_ptr != NULL){
+                col = getTerminalNumber(follow_set_ptr->token);
+                parsetable[row][col].rule_number=row;
+                parsetable[row][col].or_no = 11;
+                follow_set_ptr = follow_set_ptr->next;
+            }
+            //TYPE-3
+            if(ruleset[i].dollarPres ==1){
+                parsetable[row][DOLLAR_NOS].rule_number=row;
+                parsetable[row][DOLLAR_NOS].or_no = 11;
+            }
+        }
+
+    }
+}
+
+
 void print_table()
 {
     for (int i = 0; i < NON_TERMINAL_COUNT; i++)
     {
         for (int j = 0; j < TERMINAL_COUNT; j++)
-        {
-            if(parsetable[i][j].rule_number == -1 && parsetable[i][j].or_no == -1) continue;
+        {           //if(parsetable[i][j].rule_number != -1 && parsetable[i][j].or_no != -1)
                     printf("(%d,%d) ", parsetable[i][j].rule_number, parsetable[i][j].or_no);
         }
         printf("\n");
-    }
+     }
 }
+
 
 void complete_init(firstAndfollow *ruleset, lhs *Grammar)
 {
     init_parsetable();
     printf("Parse Table Initialized\n");
-    init_fromfirstset(ruleset, Grammar);
-    printf("First Set Table Initialized\n");
-    // init_followSet(ruleset, Grammar);
-    printf("Follwo Set Table Initialized\n");
-    print_table();
+    generate_parsetable(ruleset,Grammar);
+    //print_table();
 }
 
-int main(){
-    FILE* input = fopen("FirstAndFollow.txt", "r");
-    firstAndfollow* fnf =populateFirstandFollow(input);
-    FILE* fp = fopen("grammar_test_file.txt", "r");
-    lhs* grammar = take_input_from_grammar_file(fp);
+
+int main()
+{
+    FILE *input = fopen("FirstAndFollow.txt", "r");
+    firstAndfollow *fnf = populateFirstandFollow(input);
+    //print_fnf(fnf);
+    FILE *fp = fopen("grammar_test_file.txt", "r");
+    lhs *grammar = take_input_from_grammar_file(fp);
     complete_init(fnf,grammar);
-    
-    
-
-    //printf("%d,%d,%d,%d,%d,%d\n", parsetable[0][0].rule_number, parsetable[0][0].or_no, parsetable[0][1].rule_number, parsetable[0][1].or_no, parsetable[0][2].rule_number, parsetable[0][2].or_no);
-
+    first* f = fnf[0].First;
 }
